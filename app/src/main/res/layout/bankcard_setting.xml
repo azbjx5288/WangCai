@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/app_main">
+
+        <ImageButton
+            android:id="@android:id/home"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="@null"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="银行卡管理"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_text_size" />
+
+        <ImageView android:id="@+id/add_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/plus"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tip"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/border_frame_gray"
+            android:gravity="center"
+            android:text="请先绑定银行卡"
+            android:textSize="16dp"
+            android:visibility="gone" />
+
+        <View style="@style/divideLine"></View>
+
+        <ListView
+            android:id="@+id/bindcatrd_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tip"></ListView>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/add_area"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/text_shallow"
+        android:orientation="vertical">
+
+        <com.wangcai.lottery.component.CountdownView
+            android:id="@+id/locking_time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="6dp"
+            android:background="@drawable/shape_gray_button"
+            app:isShowDay="false"
+            app:isShowHour="true"
+            app:isShowMillisecond="false"
+            app:isShowMinute="true"
+            app:isShowSecond="true"
+            app:isTimeTextBold="true"
+            app:suffixGravity="center"
+            app:suffixTextColor="@color/text_dark"
+            app:suffixTextSize="16sp"
+            app:timeTextColor="@color/text_dark"
+            app:timeTextSize="16sp"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/locking_but"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="6dp"
+            android:background="@drawable/shape_gray_button"
+            android:text="锁定银行卡"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</LinearLayout>

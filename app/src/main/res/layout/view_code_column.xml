@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/code_column_area"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_frame"
+        android:gravity="center"
+        android:minHeight="62dp">
+
+        <TextView
+            android:id="@+id/code_column_title"
+            style="@style/pick_column_style"
+            android:layout_gravity="center"
+            android:text="@string/is_ssc_shi_title" />
+
+    </RelativeLayout>
+
+    <com.wangcai.lottery.view.DrawCodeView
+        android:id="@+id/codeview"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:tr_checkeddrawable="@color/gameCheck"
+        app:tr_horizontalgap="2dp"
+        app:tr_itemsize="30dp"
+        app:tr_itemheight="25dp"
+        app:tr_linecolor="@color/text_shallow"
+        app:tr_numberstyle="TRUE"
+        app:tr_textcolor="@color/app_main"
+        app:tr_textsize="14sp"
+        app:tr_titlebackground="@drawable/title_defalut_bg"
+        app:tr_verticalgap="2dp" />
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_checked="true" android:state_enabled="false">
+		<shape>
+			<solid android:color="@android:color/transparent"/>
+		</shape>
+	</item>
+	<item android:state_enabled="false">
+		<layer-list>
+			<item >
+				<shape>
+					<solid android:color="@android:color/transparent"/>
+					<corners android:radius="1dp"/>
+				</shape>
+			</item>
+		</layer-list>
+	</item>
+	<item android:state_checked="true" android:drawable="@drawable/tuodong"></item>
+	<item>
+		<layer-list>
+			<item android:drawable="@drawable/tuodong"></item>
+		</layer-list>
+	</item>
+</selector>

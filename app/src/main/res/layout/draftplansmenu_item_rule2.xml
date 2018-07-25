@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:minHeight="50dp">
+
+    <TextView android:id="@+id/issuelab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:gravity="center_vertical"
+        android:text="每隔"
+        android:textColor="@color/text_shallow"
+        android:textSize="14.0sp" />
+
+    <EditText
+        android:id="@+id/issuegap"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:background="@drawable/border_frame_gray"
+        android:digits="1234567890"
+        android:gravity="center_vertical"
+        android:hint="1"
+        android:imeOptions="flagNoExtractUi"
+        android:singleLine="true"
+        android:inputType="numberSigned"
+        android:text="1"
+        android:textColor="@color/text_dark"
+        android:textColorHint="@color/text_middle"
+        android:textSize="14sp" />
+
+    <TextView android:id="@+id/issuelat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="期"
+        android:textColor="@color/text_shallow"
+        android:textSize="14.0sp" />
+
+    <TextView android:id="@+id/multiplelab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="倍"
+        android:textColor="@color/text_shallow"
+        android:textSize="14.0sp" />
+
+    <TextView android:id="@+id/multiplemark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="×"
+        android:textColor="@color/text_shallow"
+        android:textSize="14.0sp" />
+
+    <EditText
+        android:id="@+id/turnmultiple"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:background="@drawable/border_frame_gray"
+        android:digits="1234567890"
+        android:gravity="center_vertical"
+        android:inputType="numberSigned"
+        android:hint="1"
+        android:imeOptions="flagNoExtractUi"
+        android:singleLine="true"
+        android:text="2"
+        android:textColor="@color/text_dark"
+        android:textColorHint="@color/text_middle"
+        android:textSize="14sp" />
+
+
+</LinearLayout>
+

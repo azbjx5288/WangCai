@@ -1,0 +1,92 @@
+package com.wangcai.lottery.pattern;
+
+import android.view.View;
+
+import com.wangcai.lottery.R;
+import com.wangcai.lottery.app.WangCaiApp;
+import com.wangcai.lottery.component.QuantityView;
+import com.wangcai.lottery.component.QuantityView.OnQuantityChangeListener;
+import com.wangcai.lottery.data.UserInfo;
+import com.wangcai.lottery.material.ShoppingCart;
+
+/**
+ * 购物车多倍操作
+ * Created by ACE-PC on 2016/2/5.
+ */
+public class ShroudView {
+
+    private static final String TAG = ShroudView.class.getSimpleName();
+    private QuantityView doubleText;    //倍数
+    private QuantityView chaseAddText;  // 追号
+    private OnModeItemChosenListener modeChosenListener;
+    private UserInfo userInfo;
+
+    public ShroudView(View view) {
+        this.userInfo = WangCaiApp.getUserCentre().getUserInfo();
+        doubleText = (QuantityView) view.findViewById(R.id.double_number_view);
+        chaseAddText = (QuantityView) view.findViewById(R.id.chaseadd_number_view);
+        doubleText.setMinQuantity(1);
+        doubleText.setMaxQuantity(1000);
+        doubleText.setQuantity(ShoppingCart.getInstance().getMultiple());
+        chaseAddText.setMinQuantity(0);
+        chaseAddText.setQuantity(ShoppingCart.getInstance().getTraceNumber());
+
+        doubleText.setOnQuantityChangeListener(new OnQuantityChangeListener() {
+
+            @Override
+            public void onQuantityChanged(int newQuantity, boolean programmatically) {
+                if (modeChosenListener != null)
+                    modeChosenListener.onModeItemChosen(newQuantity, chaseAddText.getQuantity());
+            }
+
+            @Override
+            public void onLimitReached() {
+
+            }
+        });
+
+        chaseAddText.setOnQuantityChangeListener(new OnQuantityChangeListener() {
+
+            @Override
+            public void onQuantityChanged(int newQuantity, boolean programmatically) {
+                if (modeChosenListener != null)
+                    modeChosenListener.onModeItemChosen(doubleText.getQuantity(), newQuantity);
+//                modeItemListener.onModeItemClick(doubleText.getQuantity(), newQuantity, setLucreMode(WangCaiApp.getUserCentre().getLucreMode()), appendSettings.isChecked());
+            }
+
+            @Override
+            public void onLimitReached() {
+
+            }
+        });
+    }
+
+    public void setModeChosenListener(OnModeItemChosenListener modeChosenListener) {
+        this.modeChosenListener = modeChosenListener;
+    }
+
+    /**
+     * 设置按键最大值
+     *
+     * @param num
+     */
+    public void setMaxQuantity(int num) {
+        chaseAddText.setMaxQuantity(num);
+    }
+
+    /**
+     * 设置按键最大值
+     *
+     * @param num
+     */
+    public void setChaseTrace(int num) {
+        chaseAddText.setQuantity(num);
+    }
+
+    /**
+     * 选中监听器
+     */
+    public interface OnModeItemChosenListener{
+        void onModeItemChosen(int multiple, int chaseadd);
+    }
+}

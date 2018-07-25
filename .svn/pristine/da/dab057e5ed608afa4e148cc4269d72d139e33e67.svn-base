@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/lottery_history_title_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/lottery_history_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xxxxxx"
+            android:textColor="@color/text_dark"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/lottery_history_issue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="第xxxxxxxx-xxx期"
+            android:textColor="@color/text_middle"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/lottery_history_bet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/kjzs_ljtz"
+            android:gravity="right"
+            android:text="立即投注"
+            android:textColor="@color/text_middle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
+
+        <!--快乐8-->
+        <com.wangcai.lottery.component.WarpLinearLayout
+            android:id="@+id/kuaile8"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:grivate="left"
+            app:horizontal_Space="1dp"
+            app:isFull="false" />
+
+        <LinearLayout
+            android:id="@+id/lottery_history_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/lottery_trend_ball"
+                android:text="x"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/lottery_trend_ball"
+                android:text="x"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/lottery_trend_ball"
+                android:text="x"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/lottery_trend_ball"
+                android:text="x"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/lottery_trend_ball"
+                android:text="x"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/lottery_trend_ball"
+                android:text="x"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/lottery_trend_ball"
+                android:text="x"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/lottery_trend_ball"
+                android:text="x"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/lottery_trend_ball"
+                android:text="x"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/lottery_trend_ball"
+                android:text="x"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <include
+            android:id="@+id/kuaisanLayout"
+            layout="@layout/lottery_trend_item_kuaisan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/trend_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:src="@drawable/kjzs_zs" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divideline"
+        style="@style/divideLine" />
+
+    <LinearLayout
+        android:id="@+id/lottery_trend_other_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/lottery_trend_other_list_item" />
+
+        <View style="@style/divideLine" />
+
+        <include layout="@layout/lottery_trend_other_list_item" />
+
+        <View style="@style/divideLine" />
+
+        <include
+            layout="@layout/lottery_trend_other_list_item"
+            android:visibility="gone" />
+
+        <include
+            layout="@layout/lottery_trend_other_list_item"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lottery_other_more"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:text="点击查看更多"
+        android:visibility="gone" />
+
+</LinearLayout>

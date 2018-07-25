@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusableInTouchMode="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/text_light1" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="54dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.wangcai.lottery.component.CommonTabLayout
+                    android:id="@+id/uc_tablayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/white"
+                    android:paddingBottom="8dp"
+                    app:tl_indicator_color="#fa5959"
+                    app:tl_indicator_corner_radius="2dp"
+                    app:tl_indicator_height="4dp"
+                    app:tl_indicator_margin_bottom="7dp"
+                    app:tl_indicator_width="4dp"
+                    app:tl_subtextSelectColor="#fc4f74"
+                    app:tl_subtextUnselectColor="#333333"
+                    app:tl_subtextsize="11sp"
+                    app:tl_textSelectColor="#fc4f74"
+                    app:tl_textUnselectColor="#333333"
+                    app:tl_textsize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_light" />
+
+                <LinearLayout
+                    android:id="@+id/tag_ocreate_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:visibility="gone">
+
+                    <co.lujun.androidtagview.TagContainerLayout
+                        android:id="@+id/tagcontainerLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="0dp"
+                        android:padding="10dp"
+                        app:container_background_color="@color/text_light1"
+                        app:container_border_radius="0dp"
+                        app:container_enable_drag="false"
+                        app:horizontal_interval="10dp"
+                        app:tag_background_color="@color/white"
+                        app:tag_border_color="@color/text_light"
+                        app:tag_clickable="true"
+                        app:tag_corner_radius="3dp"
+                        app:tag_theme="none"
+                        app:vertical_interval="10dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/uc_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background" />
+    </LinearLayout>
+
+    <com.wangcai.lottery.component.FragImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:color/transparent"
+        android:visibility="gone" />
+
+</RelativeLayout>

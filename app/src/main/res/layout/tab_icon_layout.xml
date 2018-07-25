@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary">
+
+    <!-- <android.support.v4.widget.Space
+         android:id="@+id/center_anchor"
+         android:layout_width="0dp"
+         android:layout_height="0dp"
+         android:layout_centerInParent="true"
+         />-->
+    <LinearLayout
+        android:id="@+id/tablelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/tab_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <com.wangcai.lottery.component.TintableImageView
+            android:id="@+id/custom_tab_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:scaleType="center"
+            app:icon_tint="@drawable/custom_tab" />
+
+        <TextView
+            android:id="@+id/custom_tab_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:maxLines="1"
+            android:textColor="@drawable/custom_tab" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/custom_tab_notification_mark"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:layout_above="@id/tablelayout"
+        android:layout_toRightOf="@id/tablelayout"
+        android:background="@drawable/shape_notification_mark"
+        android:visibility="gone" />
+
+</RelativeLayout>

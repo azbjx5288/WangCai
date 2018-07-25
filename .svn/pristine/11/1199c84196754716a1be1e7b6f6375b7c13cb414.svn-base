@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background"
+    android:minHeight="48dp">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:text="重新时时彩"
+        android:textSize="@dimen/text_size_small"
+        android:textColor="@color/black" />
+
+    <TextView android:id="@+id/game_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/name"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:maxWidth="90dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textSize="@dimen/text_size_small"
+        android:text="直选复式"/>
+
+    <TextView
+        android:id="@+id/money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@id/game_name"
+        android:text="0.02"
+        android:textSize="@dimen/text_size_small"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/name"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="30dp"
+        android:text="2015-12-21 15:57:42"
+        android:textSize="@dimen/text_size_small" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="75dp"
+        android:layout_gravity="center_vertical"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="未中奖"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/gameListItemFail" />
+
+    </LinearLayout>
+</RelativeLayout>

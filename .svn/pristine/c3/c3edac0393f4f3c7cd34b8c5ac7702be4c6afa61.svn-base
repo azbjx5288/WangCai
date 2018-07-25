@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/customize_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/app_main">
+
+        <ImageButton
+            android:id="@android:id/home"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="@null"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="投注"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_text_size" />
+
+        <ImageView
+            android:id="@+id/add_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/top_setting" />
+    </RelativeLayout>
+
+    <!--  销售倒计时 -->
+    <include
+        android:id="@+id/shopping_top_timing"
+        layout="@layout/manager_title_timing_sales_view" />
+
+    <View
+        android:id="@+id/divideLine"
+        style="@style/divideLine" />
+    <!-- 购物车展示 -->
+    <ListView
+        android:id="@+id/shopping_list"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:divider="@color/gameCheck"
+        android:dividerHeight="1dip" />
+
+    <!-- 购物车界面导航 -->
+    <include
+        android:id="@+id/shopping_bottom"
+        layout="@layout/shroudview" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/lottery_choose_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:background="@color/black"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/chase_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_type"
+                android:text="智能追号"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/shopping_choosetip"
+                layout="@layout/choosetips" />
+
+            <TextView
+                android:id="@+id/lottery_shopping_balance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="余额：0"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/anomaly_button"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/lottery_shopping_buy"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:text="确认\n投注"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

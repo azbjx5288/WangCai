@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/customize_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/app_main">
+
+        <ImageButton
+            android:id="@android:id/home"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="@null"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/back" />
+
+        <LinearLayout
+            android:id="@+id/title_text_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@android:id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size" />
+
+            <View
+                android:id="@+id/title_image"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/game_title_more" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:background="@null"
+            android:padding="8dp"
+            android:src="@drawable/top_wfsm" />
+    </RelativeLayout>
+    <!--开奖倒计时-->
+    <include
+        android:id="@+id/game_timing_view"
+        style="@style/TextAppearance.AppCompat.Medium"
+        layout="@layout/manager_title_timing_view_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/customize_title"
+        android:background="?android:windowBackground"
+        android:foreground="?selectableItemBackground" />
+
+    <LinearLayout
+        android:id="@+id/lottery_choose_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/pick_notice"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:textColor="@color/background"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/anomaly_button"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/choose_done_button"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:src="@color/transparent"/>
+
+            <com.wangcai.lottery.component.BGABadgeImageView
+                android:id="@+id/shopping_cart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/transparent"
+                android:src="@drawable/shoppingicon"
+                app:badge_draggable="true"
+                app:badge_gravity="rightTop"
+                app:badge_horizontalMargin="0dp"
+                app:badge_bgColor="@color/tiger"
+                app:fabSize="normal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/lottery_choose_bottom"
+        android:layout_below="@id/game_timing_view">
+
+        <com.wangcai.lottery.component.AdaptHighListView
+            android:id="@+id/issueresult_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none" />
+
+        <com.wangcai.lottery.component.ScrollDownLayout
+            android:id="@+id/scroll_down_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.wangcai.lottery.component.ContentScrollView
+                android:id="@+id/content_scroll_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/pick_game_layout"
+                        style="@style/layout_full"
+                        android:orientation="vertical">
+
+                        <ProgressBar
+                            style="?android:attr/progressBarStyleLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="加载中..."
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.wangcai.lottery.component.ContentScrollView>
+
+        </com.wangcai.lottery.component.ScrollDownLayout>
+    </FrameLayout>
+
+</RelativeLayout>

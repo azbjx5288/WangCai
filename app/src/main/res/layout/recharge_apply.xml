@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/recharge_method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!--1 网银2 微信3 支付宝4 银行卡-->
+            <com.wangcai.lottery.component.MenuRadioButton
+                android:id="@+id/wechatpay"
+                style="@style/tab_radio_style"
+                android:drawableLeft="@drawable/icon_wechat"
+                android:text="微信" />
+
+            <com.wangcai.lottery.component.MenuRadioButton
+                android:id="@+id/alipaypay"
+                style="@style/tab_radio_style"
+                android:drawableLeft="@drawable/icon_alipay"
+                android:text="支付宝" />
+
+            <com.wangcai.lottery.component.MenuRadioButton
+                android:id="@+id/qqpay"
+                style="@style/tab_radio_style"
+                android:drawableLeft="@drawable/icon_qqpay"
+                android:text="QQ" />
+
+            <!--<com.goldenapple.lottery.component.MenuRadioButton
+                android:id="@+id/unionpay"
+                style="@style/tab_radio_style"
+                android:drawableLeft="@drawable/bank_icon"
+                android:text="网银" />-->
+        </RadioGroup>
+
+        <com.wangcai.lottery.component.WrapContentHeightViewPager
+            android:id="@+id/viewpagerRecharge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+        </com.wangcai.lottery.component.WrapContentHeightViewPager>
+
+    </LinearLayout>
+
+    <View style="@style/divideLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/tabRechargeItemText"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/text_15_8d8d_sdw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="充值金额："
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/amounts_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥" />
+
+            <EditText
+                android:id="@+id/edit_orderamount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:digits="1234567890."
+                android:gravity="center_vertical|left"
+                android:hint="请输入充值金额"
+                android:inputType="numberDecimal"
+                android:maxLength="10"
+                android:paddingLeft="10dip"
+                android:singleLine="true"
+                android:textColorHint="@color/text_shallow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元" />
+        </LinearLayout>
+
+        <View style="@style/divideLine" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@color/background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/quota_50"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/background_rounded_button"
+                android:button="@null"
+                android:gravity="center"
+                android:text="50" />
+
+            <TextView
+                android:id="@+id/quota_100"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/background_rounded_button"
+                android:button="@null"
+                android:gravity="center"
+                android:text="100" />
+
+            <TextView
+                android:id="@+id/quota_500"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/background_rounded_button"
+                android:button="@null"
+                android:gravity="center"
+                android:text="500" />
+
+            <TextView
+                android:id="@+id/quota_1000"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_rounded_button"
+                android:button="@null"
+                android:gravity="center"
+                android:text="1000" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_login"
+                android:text="下一步"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="温馨提示:"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/currency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="单笔充值金额为最低0元，最高0元。本平台不支持信用卡充值，如使用信用户充值，产生的任何损失，本平台概不负责。"
+                android:textColor="@color/text_middle"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

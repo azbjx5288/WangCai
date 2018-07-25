@@ -1,0 +1,41 @@
+*,*:before,*:after {-webkit-box-sizing:border-box;box-sizing:border-box;}
+*{margin:0;padding:0;}
+body{font-size:12px;font-family:"Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;color:#666;line-height:1.42857143;background-color:#fff;}
+* html,* html body{background-image:url(about:blank);background-attachment:fixed;}
+a,input,img{vertical-align:middle;border:0;outline:none;}
+input,button,select,textarea,input:focus,button:focus,select:focus,textarea:focus{outline:none;}
+input[type="search"]{-webkit-appearance:none;} 
+input[type="button"]{cursor:pointer;}
+input::-webkit-search-decoration,input::-webkit-search-cancel-button{display:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;} 
+[hidefocus],summary{outline:0;}
+ul,ol,li{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+a{blr:expression(this.onFocus=this.blur());}
+a,a:active{outline:none;text-decoration:none;}
+a:hover{text-decoration:underline;}
+/*直接加类的浮动闭合*/
+.fix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.fix{display:inline-block;}
+* html .fix{height:1%;}
+.fix{display:block;}
+/*加div浮动闭合*/
+.clear{clear:both;}
+
+.content{width:100%;}
+.bTab{padding-bottom:8px;}
+.bTab table{width:88%;margin:0 auto;}
+.bTab table tr th,.bTab table tr td{height:34px;text-align:left;font-size:14px;font-weight:normal;}
+.mTab{}
+.mTab h4{width:100%;height:34px;background-color:#f5f5f5;color:#454545;font:normal 14px/34px "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;padding:0 6%;}
+.mTab table{width:100%;margin:0 auto;}
+.mTab table tr th,.mTab table tr td{height:50px;text-align:left;font-size:14px;font-weight:normal;border-bottom:1px solid #afafaf;}
+.mTab table tr th{padding-left:6%;}
+.mTab table tr td{text-align:center;padding-right:6%;}
+.mTab table tr th p span{margin-left:16px;}
+.mTab table tr td b{font-weight:normal;color:#1eaa87;display:block;}
+
+.titleTab{height: 58px;background-color: #f5f5f5;position: fixed;width: 100%;}
+.titleTab table{margin-left: 6%;width: 88%;}
+.titleTab table tr td{height: 58px;font-size: 1.2em;color: black;}

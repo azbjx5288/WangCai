@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/sddds_0"
+        style="@style/sddds_text"
+        android:text="0单5双" />
+
+    <TextView
+        android:id="@+id/sddds_1"
+        style="@style/sddds_text"
+        android:layout_toRightOf="@id/sddds_0"
+        android:text="1单4双" />
+
+    <TextView
+        android:id="@+id/sddds_2"
+        style="@style/sddds_text"
+        android:layout_toRightOf="@id/sddds_1"
+        android:text="2单3双" />
+
+    <TextView
+        android:id="@+id/sddds_3"
+        style="@style/sddds_text"
+        android:layout_toRightOf="@id/sddds_2"
+        android:text="3单2双" />
+
+    <TextView
+        android:id="@+id/sddds_4"
+        style="@style/sddds_text"
+        android:layout_below="@id/sddds_0"
+        android:text="4单1双" />
+
+    <TextView
+        android:id="@+id/sddds_5"
+        style="@style/sddds_text"
+        android:layout_below="@id/sddds_1"
+        android:layout_toRightOf="@id/sddds_4"
+        android:text="5单0双" />
+</RelativeLayout>

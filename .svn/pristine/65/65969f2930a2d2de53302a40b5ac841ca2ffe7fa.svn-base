@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/trend_column_area"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_frame"
+        android:gravity="center"
+        android:minHeight="35dp">
+
+        <TextView
+            android:id="@+id/trend_column_title"
+            style="@style/pick_column_style"
+            android:layout_gravity="center"
+            android:text="@string/is_ssc_shi_title" />
+
+    </RelativeLayout>
+
+    <com.wangcai.lottery.view.DrawTrendView
+        android:id="@+id/trendview"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        app:tr_checkeddrawable="@drawable/bg_special_complete_circle_choose_ball"
+        app:tr_horizontalgap="2dp"
+        app:tr_isNeedLinkEveryBall="true"
+        app:tr_itemsize="25dp"
+        app:tr_linkEveryBallLineColor="@color/gameListItemWin"
+        app:tr_maxcopies_x="11"
+        app:tr_mincopies_x="1"
+        app:tr_numberstyle="TRUE"
+        app:tr_textcolor="@color/background"
+        app:tr_textsize="14sp"
+        app:tr_titlebackground="@drawable/title_defalut_bg"
+        app:tr_verticalgap="2dp" />
+
+</LinearLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/pick_column_area"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minHeight="48dp">
+
+        <TextView
+            android:id="@+id/pick_column_title"
+            style="@style/pick_column_style"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/weishu_jt"
+            android:text="@string/is_ssc_shi_title" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/sddds_0"
+            style="@style/sddds_text" />
+
+        <TextView
+            android:id="@+id/sddds_1"
+            style="@style/sddds_text"
+            android:layout_toRightOf="@id/sddds_0" />
+
+        <TextView
+            android:id="@+id/sddds_2"
+            style="@style/sddds_text"
+            android:layout_toRightOf="@id/sddds_1" />
+
+        <TextView
+            android:id="@+id/sddds_3"
+            style="@style/sddds_text"
+            android:layout_toRightOf="@id/sddds_2" />
+
+        <TextView
+            android:id="@+id/sddds_4"
+            style="@style/sddds_text"
+            android:layout_below="@id/sddds_0" />
+    </RelativeLayout>
+
+</LinearLayout>

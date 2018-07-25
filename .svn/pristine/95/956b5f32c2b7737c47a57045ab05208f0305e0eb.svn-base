@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="常用玩法"/>
+
+        <com.wangcai.lottery.component.TagCloudView
+            android:id="@+id/preference"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:tcvBackground="@color/transparent"
+            app:tcvCanTagClick="true"
+            app:tcvItemBorderHorizontal="6dp"
+            app:tcvItemBorderVertical="0dp"
+            app:tcvSingleLine="false"
+            app:tcvTextColor="@drawable/general_button_text_color"
+            app:tcvSeclecTextColor="@color/app_main"
+            app:tcvTextSize="@dimen/text_size_micro"/>
+
+        <ImageView style="@style/divideLine" />
+
+        <com.wangcai.lottery.view.TableMenu
+            android:id="@+id/tableMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tmHeadmanTextColor="#505050"
+            app:tmItemTextColor="@color/text_middle"
+            app:tmVerticalGap="16dp"
+            app:tmHorizontalGap="16dp"
+            app:tmTextSize="16sp"
+            app:tmDivideLineColor="@color/text_light1"
+            app:tmCurrentTextColor="@color/app_main_dark"/>
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="webkit" name="renderer">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no,email=no" name="format-detection"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>追号详情</title>
+    <link rel="stylesheet" href="css/TraceDetail.css">
+    <script src="js/template.js" type="text/javascript"></script>
+</head>
+<body onload="onLoaded()">
+<div id="details" class="content">
+</div>
+</body>
+
+<script type="text/javascript">
+    function onLoaded() {
+        var data = androidJs.getData();
+        var lottery = androidJs.getLottery();
+        if (typeof data == "undefined") {
+            console.log("androidJs.getData() == null");
+            return;
+        }
+        data = JSON.parse(data);
+        lottery = JSON.parse(lottery);
+
+        //为自动换行，将英文逗号替换成中文逗号
+        /*for (var item in data.projects) {
+            data.projects[item].code = data.projects[item].code.replace(/,/g, "，");
+        }*/
+
+        var nowTime = new Date().getTime();
+        var doneCount = 0;
+        var pkids = [];
+
+        var list = {0:"进行中", 1:"已完成", 2:"用户终止",  3:"管理员终止",  4:"系统终止"};
+        var issusstatus = {0:"等待中", 1:"已完成", 2:"用户取消",  3:"管理员取消",  4:"系统取消",5:"撤单"};
+
+        var index = 0;
+        for (var item in data.issues) {
+            var package = data.issues[item];
+            switch (parseInt(package.status)) {
+                case 1:
+                    package.tmpStatus = { text: "已完成", color: "#b31045" }
+                    break;
+                case 2:
+                    package.tmpStatus = { text: "用户取消", color: "#39a78a" }
+                    break;
+                case 3:
+                    package.tmpStatus = { text: "管理员取消", color: "#39a78a" }
+                    break;
+                case 4:
+                    package.tmpStatus = { text: "系统取消", color: "#39a78a" }
+                    break;
+                case 5:
+                    package.tmpStatus = { text: "撤单", color: "#39a78a" }
+                    break;
+                case 0:
+                    if (package.status == 0) {
+                        package.tmpStatus = { text: issusstatus[parseInt(data.basic.status)], color: "#adadad" }
+                    } else if (typeof issusstatus[parseInt(package.status)] == "undefined"){
+                        package.tmpStatus = {text: "未知状态", color: "#505050"};
+                    } else {
+                        package.tmpStatus = {text: issusstatus[parseInt(data.basic.status)], color: "#505050"};
+                    }
+                    break;
+            }
+            if (package.bought_at ==null && package.status == 0) {
+                pkids.push(""+package.id);
+            } else {
+                doneCount++;
+            }
+            data.issues[item] = package;
+            index++;
+        }
+        data.doneCount = doneCount;
+        data.allStatus=list[data.basic.status];
+        data.totalCount = data.basic.total_issues;
+        data.lotteryName = lottery.name;
+
+        var source = document.getElementById('src').innerText;
+        var html = template.compile(source)(data);
+        document.getElementById("details").innerHTML = html;
+
+        androidJs.changeUi(parseInt(data.basic.lottery_id), doneCount != data.basic.total_issues, pkids);
+        return doneCount != data.issues.length;
+    }
+
+    function reviewStatus() {
+        androidJs.allowCancelTrace(onLoaded());
+    }
+
+</script>
+
+<script id="src" type="text/html">
+    <div class="titleTab">
+        <table>
+            <colgroup>
+                <col width="82%"/>
+                <col/>
+            </colgroup>
+            <tbody>
+            <tr>
+                <td>{{$data.lotteryName}}</td>
+                <td style="color: red;">{{$data.allStatus}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="bTab" style="padding-top: 64px;">
+        <table>
+            <colgroup>
+                <col width="33%"/>
+                <col width="33%"/>
+                <col/>
+            </colgroup>
+            <tbody>
+            <tr>
+                <th colspan="3">追号单编号：{{basic.serial_number}}</th>
+            </tr>
+            <tr>
+                <th colspan="3">购买时间：{{basic.bought_at}}</th>
+            </tr>
+            <tr>
+                <th colspan="3">追号订单金额：{{basic.amount}}元</th>
+            </tr>
+            <tr>
+                {{if basic.stop_on_won == 1}}
+                <th colspan="3">追中即停：是</th>
+                {{else}}
+                <th colspan="3">追中即停：否</th>
+                {{/if}}
+            </tr>
+        </table>
+    </div>
+    <div class="mTab">
+        <h4>投注明细：</h4>
+    </div>
+    <div class="bTab">
+        <table>
+            <colgroup>
+                <col width="33%"/>
+                <col width="33%"/>
+                <col/>
+            </colgroup>
+            <tbody>
+            <tr>
+                <td>{{basic.way}}</td>
+                <td style="word-break: break-all;">{{basic.bet_number}}</td>
+                <!--<td style="text-align: center;">多少注</td>-->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="mTab">
+        <h4>追号明细：追{{basic.total_issues}}期，完成{{basic.finished_issues}}期</h4>
+        <table>
+            <colgroup>
+                <col width="50%"/>
+                <col/>
+            </colgroup>
+            <tbody>
+            {{each issues}}
+            <tr>
+                <th>
+                    <p>{{$value.issue}}期</p>
+                    <p>{{$value.multiple}}倍<span>{{$value.amount}}元</span></p>
+                </th>
+                <td>
+                    {{if $value.status == 1}}
+                    <p>{{$value.prize}}</p>
+                    {{/if}}
+                <td style="color: {{$value.tmpStatus.color}};">{{$value.tmpStatus.text}}</td>
+                </td>
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</script>
+</html>

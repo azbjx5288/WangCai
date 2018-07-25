@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginTop="4dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/rule_samefactor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_weight="1"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="起始倍数" />
+
+        <TextView
+            android:id="@+id/plan_multiple"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:background="@drawable/border_frame_gray"
+            android:digits="1234567890"
+            android:gravity="center_vertical"
+            android:hint="1"
+            android:imeOptions="flagNoExtractUi"
+            android:singleLine="true"
+            android:text="1"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_middle"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="追号期数" />
+
+        <TextView
+            android:id="@+id/plan_issueno"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:background="@drawable/border_frame_gray"
+            android:digits="1234567890"
+            android:gravity="center_vertical"
+            android:hint="1"
+            android:imeOptions="flagNoExtractUi"
+            android:singleLine="true"
+            android:text="10"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_middle"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/plan_arrange"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_type"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewBut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="同倍追号"
+            android:textColor="@color/text_dark"
+            android:textSize="14.0sp" />
+
+        <TextView
+            android:id="@+id/textViewPromptBut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="全程以1追号"
+            android:textColor="@color/text_dark"
+            android:textSize="12.0sp" />
+    </LinearLayout>
+
+</LinearLayout>

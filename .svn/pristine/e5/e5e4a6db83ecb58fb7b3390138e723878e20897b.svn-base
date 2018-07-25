@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/lottery_history_issue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="第 xxx 期"
+        android:textColor="@color/text_dark"
+        android:textSize="12sp" />
+
+    <!--时时彩 十一选五-->
+    <LinearLayout
+        android:id="@+id/lottery_history_code"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/lottery_trend_ball"
+            android:text="x"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/lottery_trend_ball"
+            android:text="x"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/lottery_trend_ball"
+            android:text="x"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/lottery_trend_ball"
+            android:text="x"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/lottery_trend_ball"
+            android:text="x"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/lottery_trend_ball"
+            android:text="x"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/lottery_trend_ball"
+            android:text="x"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/lottery_trend_ball"
+            android:text="x"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/lottery_trend_ball"
+            android:text="x"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/lottery_trend_ball"
+            android:text="x"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!--快三-->
+    <include
+        android:id="@+id/kuaisanLayout"
+        layout="@layout/lottery_trend_item_kuaisan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="30dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:visibility="gone" />
+
+    <!--快乐8-->
+    <com.wangcai.lottery.component.WarpLinearLayout
+        android:id="@+id/kuaile8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        app:grivate="left"
+        app:horizontal_Space="1dp"
+        app:isFull="false" />
+
+    <!--PK10-->
+    <LinearLayout
+        android:id="@+id/pk10layout"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/replaceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"/>
+
+        <LinearLayout
+            android:id="@+id/rank_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="冠"
+                android:textColor="@color/darkgray"
+                android:textSize="@dimen/text_size_tiny" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="亚"
+                android:textColor="@color/darkgray"
+                android:textSize="@dimen/text_size_tiny" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="季"
+                android:textColor="@color/darkgray"
+                android:textSize="@dimen/text_size_tiny" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="四"
+                android:textColor="@color/darkgray"
+                android:textSize="@dimen/text_size_tiny" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="五"
+                android:textColor="@color/darkgray"
+                android:textSize="@dimen/text_size_tiny" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="六"
+                android:textColor="@color/darkgray"
+                android:textSize="@dimen/text_size_tiny" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="七"
+                android:textColor="@color/darkgray"
+                android:textSize="@dimen/text_size_tiny" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="八"
+                android:textColor="@color/darkgray"
+                android:textSize="@dimen/text_size_tiny" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="九"
+                android:textColor="@color/darkgray"
+                android:textSize="@dimen/text_size_tiny" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="十"
+                android:textColor="@color/darkgray"
+                android:textSize="@dimen/text_size_tiny" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

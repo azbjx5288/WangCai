@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/pick_column_area"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minHeight="48dp">
+
+        <TextView
+            android:id="@+id/pick_column_title"
+            style="@style/pick_column_style"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/weishu_jt"
+            android:text="@string/is_ssc_shi_title" />
+
+        <LinearLayout
+            android:id="@+id/pick_column_control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="16dp"
+            android:layout_toRightOf="@+id/pick_column_title">
+
+            <Button
+                android:id="@+id/pick_column_big"
+                style="@style/pick_column_text"
+                android:text="大" />
+
+            <Button
+                android:id="@+id/pick_column_small"
+                style="@style/pick_column_text"
+                android:text="小" />
+
+            <Button
+                android:id="@+id/pick_column_singular"
+                style="@style/pick_column_text"
+                android:text="单" />
+
+            <Button
+                android:id="@+id/pick_column_evenNumbers"
+                style="@style/pick_column_text"
+                android:text="双" />
+
+            <Button
+                android:id="@+id/pick_column_all"
+                style="@style/pick_column_text"
+                android:text="全" />
+
+            <Button
+                android:id="@+id/pick_column_clear"
+                style="@style/pick_column_text"
+                android:text="清" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.wangcai.lottery.view.NumberGroupView
+        android:id="@+id/pick_column_NumberGroupView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="8dp"
+        app:checkedDrawable="@drawable/bg_special_complete_circle_choose_ball"
+        app:checkedTextColor="@color/white"
+        app:chooseMode="false"
+        app:column="5"
+        app:itemHeight="42dp"
+        app:itemWidth="42dp"
+        app:maxNumber="10"
+        app:minNumber="1"
+        app:numberStyle="true"
+        app:textSize="18sp"
+        app:uncheckedDrawable="@drawable/bg_special_complete_circle_defalut_ball"
+        app:uncheckedTextColor="@color/text_dark"
+        app:verticalGap="16dp" />
+
+</LinearLayout>

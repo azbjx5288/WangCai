@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:gravity="center_vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <TextView
+        android:id="@+id/mtogbtnlab"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:paddingLeft="30dp"
+        android:text="重庆时时彩"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <com.wangcai.lottery.component.SwitchButton
+        android:id="@+id/mtogbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        app:kswBackDrawable="@drawable/flyme_back_drawable"
+        app:kswTextOff="返点最高"
+        app:kswTextOffColor="@color/gameListItemWin"
+        app:kswTextOn="奖金最高"
+        app:kswTextOnColor="@color/app_main_dark"
+        app:kswTextSize="12sp"
+        app:kswThumbDrawable="@drawable/flyme_thumb_drawable"
+        app:kswThumbHeight="32dp"
+        app:kswThumbMarginBottom="-1dp"
+        app:kswThumbMarginLeft="-1dp"
+        app:kswThumbMarginRight="-1dp"
+        app:kswThumbMarginTop="-1dp"
+        app:kswThumbWidth="76dp" />
+
+</RelativeLayout>

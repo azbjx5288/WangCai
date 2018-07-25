@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.wangcai.lottery.component.FlowRadioGroup
+            android:id="@+id/lucremode_sett"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:child_count="6"
+            app:child_layout="@layout/flowradiogroup_child"
+            app:child_margin_horizontal="6.0dip"
+            app:child_margin_vertical="6.0dip"
+            app:child_values="@array/flowradiogroup_values"
+            app:gravity="0"
+            app:single_choice="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/rebate_text"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="0.00%" />
+
+                <com.wangcai.lottery.component.DiscreteSeekBar
+                    android:id="@+id/discrete1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:dsb_max="0"
+                    app:dsb_min="0"
+                    app:dsb_value="-2" />
+
+                <TextView
+                    android:id="@+id/bonus_text"
+                    android:layout_width="45dp"
+                    android:layout_height="wrap_content"
+                    android:text="0" />
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/shopping_append_settings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="追中即停"
+                android:textColor="@color/text_dark"
+                android:textSize="14dip" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

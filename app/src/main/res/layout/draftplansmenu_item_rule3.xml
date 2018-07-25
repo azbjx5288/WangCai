@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="100dp"
+    android:paddingTop="10dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView android:id="@+id/agoissue_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:gravity="center_vertical"
+            android:text="前"
+            android:textColor="@color/text_dark"
+            android:textSize="14.0sp" />
+
+        <EditText
+            android:id="@+id/agoissue"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:background="@drawable/border_frame_gray"
+            android:digits="1234567890"
+            android:gravity="center_vertical"
+            android:inputType="numberSigned"
+            android:hint="1"
+            android:imeOptions="flagNoExtractUi"
+            android:singleLine="true"
+            android:text="10"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_middle"
+            android:textSize="14sp" />
+
+        <TextView android:id="@+id/agoissue_lat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="期"
+            android:textColor="@color/text_dark"
+            android:textSize="14.0sp" />
+
+        <EditText
+            android:id="@+id/agovalue"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:background="@drawable/border_frame_gray"
+            android:digits="1234567890"
+            android:gravity="center_vertical"
+            android:inputType="numberSigned"
+            android:hint="1"
+            android:imeOptions="flagNoExtractUi"
+            android:singleLine="true"
+            android:text="30"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_middle"
+            android:textSize="14sp" />
+
+        <TextView android:id="@+id/agounit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="%"
+            android:textColor="@color/text_dark"
+            android:textSize="14.0sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView android:id="@+id/laterlaber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="之后盈利率"
+            android:textColor="@color/text_dark"
+            android:textSize="14.0sp" />
+
+        <EditText
+            android:id="@+id/latervalue"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:background="@drawable/border_frame_gray"
+            android:digits="1234567890"
+            android:gravity="center_vertical"
+            android:inputType="numberSigned"
+            android:hint="1"
+            android:imeOptions="flagNoExtractUi"
+            android:singleLine="true"
+            android:text="10"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_middle"
+            android:textSize="14sp" />
+
+        <TextView android:id="@+id/laterunit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="%"
+            android:textColor="@color/text_dark"
+            android:textSize="14.0sp" />
+    </LinearLayout>
+
+</LinearLayout>
+
