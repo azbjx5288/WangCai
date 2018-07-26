@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -240,7 +241,7 @@ public class CustomDialog extends Dialog {
             dialogView.setLayoutParams(dialogViewParams);
             dialogView.setBackgroundColor(Color.TRANSPARENT);
             if (message != null) {
-                ((TextView) layout.findViewById(R.id.message)).setText(message);
+                ((TextView) layout.findViewById(R.id.message)).setText(Html.fromHtml(message));
             } else if (contentView != null) {
                 ((LinearLayout) layout.findViewById(R.id.content)).removeAllViews();
                 ((LinearLayout) layout.findViewById(R.id.content)).addView(contentView, new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
@@ -292,7 +293,7 @@ public class CustomDialog extends Dialog {
             dialogView.setLayoutParams(new LinearLayout.LayoutParams(10, LinearLayout.LayoutParams.MATCH_PARENT));
             dialogView.setBackgroundColor(Color.TRANSPARENT);
             if (message != null) {
-                ((TextView) layout.findViewById(R.id.message)).setText(message);
+                ((TextView) layout.findViewById(R.id.message)).setText(Html.fromHtml(message));
             } else if (contentView != null) {
                 ((LinearLayout) layout.findViewById(R.id.content)).removeAllViews();
                 ((LinearLayout) layout.findViewById(R.id.content)).addView(contentView, new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
@@ -346,7 +347,7 @@ public class CustomDialog extends Dialog {
             dialogView.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT));
             dialogView.setBackgroundColor(Color.TRANSPARENT);
             if (message != null) {
-                ((TextView) layout.findViewById(R.id.message)).setText(message);
+                ((TextView) layout.findViewById(R.id.message)).setText(Html.fromHtml(message));
             } else if (contentView != null) {
                 ((LinearLayout) layout.findViewById(R.id.content)).removeAllViews();
                 ((LinearLayout) layout.findViewById(R.id.content)).addView(contentView, new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
@@ -383,7 +384,7 @@ public class CustomDialog extends Dialog {
             layout.findViewById(R.id.negativeButton).setVisibility(View.GONE);
 
             if (message != null) {
-                ((TextView) layout.findViewById(R.id.message)).setText(message);
+                ((TextView) layout.findViewById(R.id.message)).setText(Html.fromHtml(message));
             } else if (contentView != null) {
                 ((LinearLayout) layout.findViewById(R.id.content)).removeAllViews();
                 ((LinearLayout) layout.findViewById(R.id.content)).addView(contentView, new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));

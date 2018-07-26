@@ -3,6 +3,7 @@ package com.wangcai.lottery.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +48,7 @@ import com.wangcai.lottery.pattern.ChooseTips;
 import com.wangcai.lottery.pattern.ShroudView;
 import com.wangcai.lottery.pattern.TitleTimingSalesView;
 import com.wangcai.lottery.user.UserCentre;
+import com.wangcai.lottery.util.DanTiaoUtils;
 import com.wangcai.lottery.util.SignUtils;
 import com.wangcai.lottery.view.adapter.ShoppingAdapter;
 import com.google.gson.reflect.TypeToken;
@@ -81,6 +83,7 @@ public class ShoppingFragment extends BaseFragment {
     private static final int TRACK_TURNED_PAGE_LOGIN = 1;
     private static final int TRACK_TURNED_PAGE_RECHARGE = 2;
     private static final int TRACK_TURNED_PAGE_PICK = 3;
+    private static final int TRACK_TURNED_PAGE_DANTIAO= 4;//单挑
 
 
     @BindView(R.id.customize_toolbar)
@@ -310,7 +313,17 @@ public class ShoppingFragment extends BaseFragment {
                 // ③判断：用户的余额是否满足投注需求
                 if (cart.getPlanAmount() <= Double.valueOf(userCentre.getUserInfo().getAbalance())) {
                     // ④界面跳转：跳转到追期和倍投的设置界面
-                    verificationData();
+
+                    DanTiaoUtils danTiaoUtils=new DanTiaoUtils();
+                    String danTiaoString=danTiaoUtils.isShowDialog(lottery.getSeriesId());
+
+                    if(TextUtils.isEmpty(danTiaoString)){
+                        verificationData();
+                    }else{
+                        tipDialog2("提示",danTiaoString,  TRACK_TURNED_PAGE_DANTIAO);
+                        return;
+                    }
+
                 } else {
                     // 提示用户：充值去；界面跳转：用户充值界面
                     tipDialog("温馨提示", "请充值", TRACK_TURNED_PAGE_RECHARGE);
@@ -454,6 +467,22 @@ public class ShoppingFragment extends BaseFragment {
         builder.create().show();
     }
 
+    private void tipDialog2(String title, String msg, final int track) {
+        CustomDialog.Builder builder = new CustomDialog.Builder(getContext());
+        builder.setMessage(msg);
+        builder.setTitle(title);
+        builder.setLayoutSet(DialogLayout.LEFT_AND_RIGHT);
+        builder.setNegativeButton("取消", (dialog, which) ->
+        {
+            dialog.dismiss();
+        });
+        builder.setPositiveButton("确认", (dialog, which) ->
+        {
+            dialog.dismiss();
+            verificationData();
+        });
+        builder.create().show();
+    }
     /**
      * 投注请求
      *
