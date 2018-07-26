@@ -1,0 +1,497 @@
+﻿07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE: call use 143ms for service?packet=Game&action=getWaySettings:{
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |  errno:0
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |  error:null
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |  data:[<size=6>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    id:556
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    pid:0
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    name_cn:"三星"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    name_en:"housan"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    children:[<size=2>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    id:557
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    pid:556
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_cn:"直选"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_en:"zhixuan"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    children:[<size=3>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:136
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:557
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:136
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"复式"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"fushi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"每位至少选择一个号码，竞猜开奖号码，号码和位置都对应即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 123；开奖号码：123。即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"每位至少选择一个号码，竞猜开奖号码，号码和位置都对应即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"90"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"1956"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:123
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:557
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:123
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"单式"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"danshi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"手动输入至少一个3位数号码组成一注，所选号码与开奖号码相同，且顺序一致，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 123；开奖号码：123。即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"手动输入至少一个3位数号码组成一注，所选号码与开奖号码相同，且顺序一致，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"90"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"1956"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:139
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:557
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:139
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"直选和值"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"hezhi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"至少选择一个和值，所选和值等于开奖号码的三个数字相加之和，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 1；开奖号码：100、010、001。即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"至少选择一个和值，所选和值等于开奖号码的三个数字相加之和，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"90"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"1956"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    id:558
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    pid:556
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_cn:"组选"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_en:"zuxuan"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    children:[<size=5>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:131
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:558
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:131
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"组三"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"zusan"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"从0-9中选择2个数字组成两注，所选号码与开奖号码的百位、十位、个位相同，且顺序不限，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：233；开奖号码后三位为：一个2两个3（顺序不限）。即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"从0-9中选择2个数字组成两注，所选号码与开奖号码的百位、十位、个位相同，且顺序不限，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"91"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"652"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:132
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:558
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:132
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"组六"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"zuliu"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"从0-9中任意选择3个号码组成一注，所选号码与开奖号码的百位、十位、个位相同，顺序不限，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：236；开奖号码后三位为：一个2，一个3，一个6（顺序不限）。即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"从0-9中任意选择3个号码组成一注，所选号码与开奖号码的百位、十位、个位相同，顺序不限，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"92"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"326"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:140
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:558
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:140
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"组选和值"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"hezhi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"从1-26中选择一个号码，所选数值等于开奖号码百位、十位、个位三个数字相加之和(不含豹子号)，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 3； 如开奖号码后三位为：003（顺序不限）即中后三组选三，如开奖号码后三位为：012（顺序不限）即中后三组选六。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"从1-26中选择一个号码，所选数值等于开奖号码百位、十位、个位三个数字相加之和(不含豹子号)，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"91,92"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"652"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:false
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:124
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:558
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:124
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"组三单式"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"zusandanshi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"手动输入至少一个组三号码，3个数字为一注，所选号码与开奖号码的百位、十位、个位相同，顺序不限，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：588；开奖号码为：一个5两个8（顺序不限）。即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"手动输入至少一个组三号码，3个数字为一注，所选号码与开奖号码的百位、十位、个位相同，顺序不限，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"91"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"652"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:125
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:558
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:125
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"组六单式"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"zuliudanshi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"手动输入至少一个组六号码，3个数字为一注，所选号码与开奖号码的百位、十位、个位相同，顺序不限，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：258；开奖号码为：一个2，一个5，一个8（顺序不限）。即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"手动输入至少一个组六号码，3个数字为一注，所选号码与开奖号码的百位、十位、个位相同，顺序不限，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"92"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"326"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    id:559
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    pid:0
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    name_cn:"二星"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    name_en:"erxing"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    children:[<size=2>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    id:560
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    pid:559
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_cn:"直选"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_en:"zhixuan"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    children:[<size=4>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:138
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:560
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:138
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"后二直选"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"houerfushi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"从十位、个位中选择一个2位数号码组成一注，所选号码与开奖号码的十位、个位相同，且顺序一致，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 5、8；开奖号码后两位： 58 即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"从十位、个位中选择一个2位数号码组成一注，所选号码与开奖号码的十位、个位相同，且顺序一致，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"94"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"195.6"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:128
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:560
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:128
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"后二直选单式"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"houerdanshi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"手动输入至少一个2位数号码组成一注，所选号码的十位、个位与开奖号码相同，且顺序一致，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 5、8；开奖号码后两位： 58 即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"手动输入至少一个2位数号码组成一注，所选号码的十位、个位与开奖号码相同，且顺序一致，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"94"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"195.6"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:137
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:560
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:137
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"前二直选"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"qianerfushi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"从万位、千位中选择一个2位数号码组成一注，所选号码与开奖号码的百位、十位相同，且顺序一致，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 5、8 ；开奖号码前两位： 58 即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"从万位、千位中选择一个2位数号码组成一注，所选号码与开奖号码的百位、十位相同，且顺序一致，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"94"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"195.6"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:126
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:560
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:126
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"前二单式"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"qianerdanshi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"手动输入至少一个2位数号码组成一注，所选号码的百位、十位与开奖号码相同，且顺序一致，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 5、8 ；开奖号码前两位： 58 即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"手动输入至少一个2位数号码组成一注，所选号码的百位、十位与开奖号码相同，且顺序一致，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"94"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"195.6"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    id:561
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    pid:559
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_cn:"组选"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_en:"zuxuan"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    children:[<size=4>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:135
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:561
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:135
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"后二组选"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"houerfushi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"从0-9中选2个号码组成一注，所选号码与开奖号码的十位、个位相同，顺序不限（不含对子号），即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 5、8；开奖号码后两位： 58、85（顺序不限）。即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"从0-9中选2个号码组成一注，所选号码与开奖号码的十位、个位相同，顺序不限（不含对子号），即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"97"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"97.8"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:129
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:561
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:129
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"后二单式"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"houerdanshi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"手动输入至少一个2位数号码组成一注，所选号码的十位、个位与开奖号码相同，顺序不限（不含对子号），即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 5、8；开奖号码后两位： 58、85（顺序不限）。即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"手动输入至少一个2位数号码组成一注，所选号码的十位、个位与开奖号码相同，顺序不限（不含对子号），即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"97"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"97.8"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:134
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:561
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:134
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"前二组选"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"qianerfushi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"从0-9中选2个号码组成一注，所选号码与开奖号码的百位、十位相同，顺序不限（不含对子号），即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 5、8；开奖号码前两位： 58、85（顺序不限）。即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"从0-9中选2个号码组成一注，所选号码与开奖号码的百位、十位相同，顺序不限（不含对子号），即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"97"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"97.8"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:127
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:561
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:127
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"前二单式"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"qianerdanshi"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"手动输入至少一个2位数号码组成一注，所选号码的百位、十位与开奖号码相同，顺序不限（不含对子号），即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 5、8；开奖号码前两位： 58、85（顺序不限）。即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"手动输入至少一个2位数号码组成一注，所选号码的百位、十位与开奖号码相同，顺序不限（不含对子号），即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"97"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"97.8"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    id:562
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    pid:0
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    name_cn:"一星"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    name_en:"yixing"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    children:[<size=1>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    id:563
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    pid:562
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_cn:"定位胆"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_en:"dingweidan"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    children:[<size=1>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:141
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:563
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:141
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"定位胆"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"sanxingdingweidan"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"投注方案：百位1；开奖号码百位：1，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"从百位、十位、个位任意位置上至少选择1个以上号码，所选号码与相同位置上的开奖号码一致，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"投注方案：百位1；开奖号码百位：1，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"95,95,95"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"19.56"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    id:564
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    pid:0
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    name_cn:"不定位"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    name_en:"budingwei"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    children:[<size=1>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    id:565
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    pid:564
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_cn:"不定位"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_en:"sanxingbudingwei"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    children:[<size=2>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:133
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:565
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:133
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"一码不定位"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"qiansanyimabudingwei"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"从0-9中选择1个号码，每注由1个号码组成，只要开奖号码的百位、十位、个位中包含所选号码，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案： 1；开奖号码后三位 ：至少出现一个1，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"从0-9中选择1个号码，每注由1个号码组成，只要开奖号码的百位、十位、个位中包含所选号码，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"93"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"7.22"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:485
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:565
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:485
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"二码不定位"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"erma"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"从0-9中选择2个号码，每注由2个不同的号码组成，开奖号码的百位、十位、个位中同时包含所选的2个号码，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：1，2；开奖号码后三位：至少出现1和2各一个，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"从0-9中选择2个号码，每注由2个不同的号码组成，开奖号码的百位、十位、个位中同时包含所选的2个号码，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"98"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"36.23"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    id:566
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    pid:0
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    name_cn:"龙虎和"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    name_en:"longhu"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    children:[<size=1>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    id:567
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    pid:566
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_cn:"龙虎和"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_en:"longhu"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    children:[<size=3>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:372
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:567
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:372
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"百十"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"bs"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"百位号码大于十位时龙即中奖，小于十位时为虎中奖，号码相同为和中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：龙；开奖号码：210，龙即中奖。\r\n投注方案：虎；开奖号码：120，虎即中奖。\r\n投注方案：和；开奖号码：220，和即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"百位号码大于十位时龙即中奖，小于十位时为虎中奖，号码相同为和中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"106"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"19.56"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:false
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:373
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:567
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:373
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"百个"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"bg"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"百位号码大于个位时龙即中奖，小于个位时为虎中奖，号码相同为和中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：龙；开奖号码：201，龙即中奖。\r\n投注方案：虎；开奖号码：102，虎即中奖。\r\n投注方案：和；开奖号码：202，和即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"百位号码大于个位时龙即中奖，小于个位时为虎中奖，号码相同为和中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"106"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"19.56"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:false
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:374
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:567
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:374
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"十个"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"sg"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"十位号码大于个位时龙即中奖，小于个位时为虎中奖，号码相同为和中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：龙；开奖号码：021，龙即中奖。\r\n投注方案：虎；开奖号码：012，虎即中奖。\r\n投注方案：和；开奖号码：022，和即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"十位号码大于个位时龙即中奖，小于个位时为虎中奖，号码相同为和中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"106"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"19.56"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:false
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    id:568
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    pid:0
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    name_cn:"猜不出"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    name_en:"caibuchu"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |    children:[<size=1>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    id:569
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    pid:568
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_cn:"猜不出"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    name_en:"caibuchu"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |    children:[<size=5>
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:367
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:569
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:367
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"猜1不出"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"cbc1"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"在0-9，共10个号码中任选1个号码为一注。当开出的奖号3个数字中都没有出现所选数字即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：0；开奖号码：689，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"在0-9，共10个号码中任选1个号码为一注。当开出的奖号3个数字中都没有出现所选数字即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"85"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"2.68"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:368
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:569
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:368
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"猜2不出"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"cbc2"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"在0-9，共10个号码中任选2个号码为一注。当开出的奖号3个数字中都没有出现所选数字即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：0,1；开奖号码：689，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"在0-9，共10个号码中任选2个号码为一注。当开出的奖号3个数字中都没有出现所选数字即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"86"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"3.82"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:369
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:569
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:369
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"猜3不出"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"cbc3"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"在0-9，共10个号码中任选3个号码为一注。当开出的奖号3个数字中都没有出现所选数字即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：0,1,2；开奖号码：689，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"在0-9，共10个号码中任选3个号码为一注。当开出的奖号3个数字中都没有出现所选数字即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"87"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"5.7"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:370
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:569
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:370
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"猜4不出"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"cbc4"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"在0-9，共10个号码中任选4个号码为一注。当开出的奖号3个数字中都没有出现所选数字即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：0,1,2,3；开奖号码：689，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"在0-9，共10个号码中任选4个号码为一注。当开出的奖号3个数字中都没有出现所选数字即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"88"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"9.05"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  {
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    id:371
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    pid:569
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    series_way_id:371
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_cn:"猜5不出"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    name_en:"cbc5"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    price:2
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bet_note:"在0-9，共10个号码中任选5个号码为一注。当开出的奖号3个数字中都没有出现所选数字即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    bonus_note:"投注方案：0,1,2,3,4；开奖号码：689，即为中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    brief_note:"在0-9，共10个号码中任选5个号码为一注。当开出的奖号3个数字中都没有出现所选数字即中奖。"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    basic_methods:"89"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    maxPrize:"15.65"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |    display_prize:true
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |           | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     |  }
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |     | ]
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            |  sign:"519e19477e663af585eb1c26ed9065e8"
+07-26 07:53:50.430 909-987/com.wangcai.lottery I/GsonRequest_RESPONSE:                                                            | }
