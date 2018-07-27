@@ -52,5 +52,5 @@
 
     <color name="halfTransparent">#10000000</color>
     <color name="whiteHalfTransparent">#80FFFFFF</color>
-
+    <color name="app_font_dark_color">#999999</color>
 </resources>

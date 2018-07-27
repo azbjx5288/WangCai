@@ -31,4 +31,6 @@
     <dimen name="pad_ud">10dp</dimen>
     <dimen name="pad_lr">15dp</dimen>
 
+    <dimen name="game_method_info_padding">0.1dp</dimen>
+
 </resources>

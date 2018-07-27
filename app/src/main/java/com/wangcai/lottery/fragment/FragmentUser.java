@@ -101,7 +101,8 @@ public class FragmentUser extends LazyBaseFragment {
     }
 
     @OnClick({R.id.balance_details, R.id.withdraw_deposit, R.id.rebates_setting, R.id.notice, R.id.customer_service,
-            R.id.password_setting, R.id.security_setting, R.id.version, R.id.lower_setting, R.id.card_setting})
+            R.id.password_setting, R.id.security_setting, R.id.version, R.id.lower_setting, R.id.card_setting
+             ,R.id.dan_tiao})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.balance_details:
@@ -148,6 +149,9 @@ public class FragmentUser extends LazyBaseFragment {
                 break;
             case R.id.version:
                 new VersionChecker(this).startCheck(true);
+                break;
+            case R.id.dan_tiao:
+                launchFragment(DanTiaoTableFragment.class);
                 break;
             default:
                 break;

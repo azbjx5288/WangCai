@@ -224,4 +224,47 @@
     <string name="button_email">Send email</string>
     <string name="result_address_book">Found contact info</string>
     <string name="result_email_address">Found email address</string>
+    <string name="dantiao_ssc_item1"><![CDATA[<=1000注]]></string>
+    <string name="dantiao_3d_item5">≤1注</string>
+    <string name="dantiao_3d_item3">≤2注</string>
+    <string name="dantiao_3d_item1">≤10注</string>
+    <string name="dantiao_kuaisan_item1">≤1注</string>
+    <string name="dantiao_kuaisan_item2">≤2注</string>
+    <string name="dantiao_11select5_item1">≤9注</string>
+    <string name="dantiao_11select5_item2">≤1注</string>
+    <string name="dantiao_11select5_item4">≤4注</string>
+    <string name="dantiao_11select5_item3">≤3注</string>
+    <string name="dantiao_ssc_item2">≤5注</string>
+    <string name="dantiao_ssc_item3">≤9注</string>
+    <string name="dantiao_ssc_item4">≤24注</string>
+    <string name="dantiao_ssc_item6"><![CDATA[<=5000注]]></string>
+    <string name="dantiao_ssc_item7">≤400注</string>
+    <string name="dantiao_ssc_item8">≤100注</string>
+    <string name="dantiao_ssc_item11"><![CDATA[<=6注]]></string>
+    <string name="dantiao_ssc_item12"><![CDATA[<=12注]]></string>
+    <string name="dantiao_ssc_item13"><![CDATA[<=30注]]></string>
+    <string name="dantiao_ssc_item14"><![CDATA[<=48注]]></string>
+    <string name="dantiao_ssc_item16"><![CDATA[<=45注]]></string>
+    <string name="dantiao_ssc_item21">≤25注</string>
+    <string name="dantiao_ssc_item24">≤17注</string>
+    <string name="dantiao_ssc_item23">≤8注</string>
+    <string name="dantiao_ssc_item22">≤4注</string>
+    <string name="dantiao_ssc_item32">≤10注</string>
+    <string name="dantiao_ssc_item34">≤1注</string>
+    <string name="dantiao_ssc_item33">≤2注</string>
+    <string name="dantiao_ssc_item35">≤3注</string>
+    <string name="dantiao_ssc_item44">≤40注</string>
+    <string name="dantiao_ssc_item41">≤20注</string>
+    <string name="dantiao_ssc_item42">≤2注</string>
+    <string name="dantiao_ssc_item43">≤250注</string>
+    <string name="dantiao_ssc_item45">≤50注</string>
+    <string name="dantiao_ssc_item46">≤5注</string>
+    <string name="dantiao_ssc_item47">≤1注</string>
+    <string name="dantiao_ssc_item48">≤20注</string>
+    <string name="dantiao_ssc_item51">≤3注</string>
+    <string name="dantiao_ssc_item52">≤100注</string>
+    <string name="dantiao_ssc_item53">≤4注</string>
+    <string name="dantiao_ssc_item54">≤8注</string>
+    <string name="dantiao_ssc_item55">≤16注</string>
+    <string name="dantiao_ssc_item56">≤25注</string>
 </resources>

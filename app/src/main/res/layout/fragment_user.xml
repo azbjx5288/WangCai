@@ -154,6 +154,13 @@
                 android:drawableLeft="@drawable/rebates_setting"
                 android:text="奖金设置"
                 android:visibility="gone" />
+            <View style="@style/divideLine" />
+
+            <TextView
+                android:id="@+id/dan_tiao"
+                style="@style/tabUserItemText"
+                android:drawableLeft="@drawable/notice"
+                android:text="单挑说明" />
 
             <View
                 style="@style/divideLine"
@@ -171,7 +178,7 @@
                 android:id="@+id/notice"
                 style="@style/tabUserItemText"
                 android:drawableLeft="@drawable/notice"
-                android:text="历史公告" />
+                android:text="平台公告" />
 
             <View style="@style/divideLine" />
 
