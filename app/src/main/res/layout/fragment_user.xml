@@ -159,7 +159,7 @@
             <TextView
                 android:id="@+id/dan_tiao"
                 style="@style/tabUserItemText"
-                android:drawableLeft="@drawable/notice"
+                android:drawableLeft="@drawable/dantiao_info"
                 android:text="单挑说明" />
 
             <View
@@ -169,7 +169,7 @@
             <TextView
                 android:id="@+id/customer_service"
                 style="@style/tabUserItemText"
-                android:drawableLeft="@drawable/notice"
+                android:drawableLeft="@drawable/cus_kefu"
                 android:text="客服中心" />
 
             <View style="@style/divideLine" />
