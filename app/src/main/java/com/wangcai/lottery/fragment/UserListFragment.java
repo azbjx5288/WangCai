@@ -1,0 +1,318 @@
+package com.wangcai.lottery.fragment;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+
+import com.google.gson.reflect.TypeToken;
+import com.wangcai.lottery.R;
+import com.wangcai.lottery.app.BaseFragment;
+import com.wangcai.lottery.app.FragmentLauncher;
+import com.wangcai.lottery.app.LazyBaseFragment;
+import com.wangcai.lottery.base.net.JsonString;
+import com.wangcai.lottery.base.net.RestCallback;
+import com.wangcai.lottery.base.net.RestRequest;
+import com.wangcai.lottery.base.net.RestRequestManager;
+import com.wangcai.lottery.base.net.RestResponse;
+import com.wangcai.lottery.data.UserListBean;
+import com.wangcai.lottery.data.UserListCommand;
+import com.wangcai.lottery.data.UserListSubCommand;
+import com.wangcai.lottery.view.adapter.UserListAdapter;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+
+
+/**
+ * 用户列表
+ */
+
+public class UserListFragment extends LazyBaseFragment implements UserListAdapter.OnManageListner{
+    private static final String TAG = UserListFragment.class.getSimpleName();
+
+    private static final int ID_USER_LIST = 1;
+
+    private static final int ID_USER_LIST2 = 2;
+
+
+    @BindView(R.id.edit_name)
+    EditText edit_name;
+    @BindView(R.id.listView)
+    ListView listView;
+    @BindView(R.id.refreshLayout)
+    SwipeRefreshLayout refreshLayout;
+    @BindView(R.id.btn_search)
+    Button btn_search;
+
+    @BindView(R.id.no_lowermember)
+    RelativeLayout noLowermember;
+
+    private UserListAdapter adapter;
+    private List<UserListBean> mItems=new ArrayList<UserListBean>();
+
+    private boolean isLoading;
+    private int page = 1;
+    private int totalCount;
+    final int endTrigger = 2; // load more content 2 items before the end
+    private int pid;
+    private String pusername;
+    private  boolean isHiddenEditImage=false;
+
+    public static void launch(BaseFragment fragment) {
+        FragmentLauncher.launch(fragment.getActivity(), UserListFragment.class);
+    }
+
+    public static void launch(BaseFragment fragment, Boolean isHiddenEditImage,int pid,String username) {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("isHiddenEditImage",isHiddenEditImage);
+        bundle.putInt("pid",pid);
+        bundle.putString("pusername",username);
+        FragmentLauncher.launch(fragment.getActivity(), UserListFragment.class, bundle);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflateView(inflater, container, false, "用户列表", R.layout.fragment_user_list, true, true);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        isHiddenEditImage=getArguments().getBoolean("isHiddenEditImage");
+        pid=getArguments().getInt("pid");
+        pusername=getArguments().getString("pusername");
+        adapter = new UserListAdapter(isHiddenEditImage);
+        refreshLayout.setColorSchemeColors(Color.parseColor("#ff0000"), Color.parseColor("#00ff00"), Color.parseColor("#0000ff"), Color.parseColor("#f234ab"));
+        refreshLayout.setOnRefreshListener(() -> loadUserList());
+
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+
+            @Override
+            public void onScrollStateChanged(AbsListView arg0, int arg1) {
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                if (listView.getCount() != 0)
+                    if (totalCount > 0)
+                        if (listView.getLastVisiblePosition() >= (listView.getCount() - 1) - endTrigger)
+                        {
+                            page++;
+                            loadUserList();
+                        }
+            }
+        });
+        adapter.setOnManageListner(this);
+        listView.setAdapter(adapter);
+        refreshLayout.setRefreshing(false);
+        isLoading = false;
+        loadUserList();
+    }
+    private void loadUserList() {
+        if (isLoading) {
+            return;
+        }
+        if(isHiddenEditImage){
+            UserListSubCommand command = new UserListSubCommand();
+            command.setPage(page);
+            command.setPid(pid);
+//            TypeToken typeToken = new TypeToken<RestResponse<ArrayList<UserListBean>>>() {
+//            };
+//            RestRequest restRequest = RestRequestManager.createRequest(getActivity(), command, typeToken, restCallback, ID_USER_LIST2, this);
+//            restRequest.execute();
+
+            executeCommand( command, restCallback, ID_USER_LIST2);
+
+        }else{
+            UserListCommand command = new UserListCommand();
+            command.setPage(page);
+//        command.setUsername(username);
+            TypeToken typeToken = new TypeToken<RestResponse<ArrayList<UserListBean>>>() {
+            };
+            RestRequest restRequest = RestRequestManager.createRequest(getActivity(), command, typeToken, restCallback, ID_USER_LIST, this);
+            restRequest.execute();
+        }
+
+    }
+    @OnClick({R.id.edit_name, R.id.btn_search})
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_search:
+                searchLower();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void searchLower() {
+        String searchInfo = edit_name.getText().toString();
+        if (TextUtils.isEmpty(searchInfo)) {
+            adapter.setData(mItems);
+            return;
+        }
+
+        List<UserListBean> findList = new ArrayList<UserListBean>();
+        for (Iterator<UserListBean> iterator = mItems.iterator(); iterator.hasNext(); ) {
+            UserListBean nextMember = iterator.next();
+            if (nextMember.getUsername().contains(searchInfo))
+                findList.add(nextMember);
+        }
+        adapter.setData(findList);
+    }
+
+    //没有下级的情况
+    private void noLowerMemberShowHints() {
+        refreshLayout.setVisibility(View.GONE);
+        noLowermember.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onEdit(int id,String username,boolean is_agent)
+    {
+//        if (items != null && items.size() > position&&items.get(position) instanceof LowerMember)
+//        {
+//            Bundle bundle = new Bundle();
+//            bundle.putString("openType","edit");
+//            bundle.putInt("userID",((LowerMember) items.get(position)).getUserId());
+//            launchFragmentForResult(LowerRebateSetting.class, bundle, 1);
+//        }
+        //该用户下的下级
+        UserListEditAccountAccurateFragment.launch(UserListFragment.this, id, username,is_agent);
+    }
+
+    @Override
+    public void onDetal(int position,int pid,String username)
+    {
+        //该用户下的下级
+        UserListFragment.launch(UserListFragment.this,true,pid,username);
+    }
+
+    private RestCallback restCallback = new RestCallback() {
+        @Override
+        public boolean onRestComplete(RestRequest request, RestResponse response) {
+            if (request.getId() == ID_USER_LIST) {
+//                mItems=(ArrayList<UserListBean>)  response.getData();
+//                if(mItems.size()>0){
+//                    adapter.setData(mItems);
+//                }else{
+//                    noLowerMemberShowHints();
+//                }
+
+                if (response.getData() == null&&page!=1)
+                {
+                    mItems.clear();
+                } else
+                {
+                    if (page == 1)
+                    {
+                        mItems.clear();
+                    }
+                    List<UserListBean> data = (ArrayList<UserListBean>) response.getData();
+                    totalCount = data.size();
+
+                    mItems.addAll(data);
+
+
+                    if(mItems.size()>0){
+                        adapter.setData(mItems);
+                    }else{
+                        noLowerMemberShowHints();
+                    }
+
+//                    if (adapter.getCount() > 0)
+//                    {
+//                        empty.setVisibility(View.GONE);
+//                    } else
+//                    {
+//                        empty.setVisibility(View.VISIBLE);
+//                    }
+                }
+            }else if(request.getId() ==ID_USER_LIST2){
+
+                if (response.getData() == null&&page!=1)
+                {
+                    mItems.clear();
+                } else
+                {
+                    if (page == 1)
+                    {
+                        mItems.clear();
+                    }
+                    String jsonString= ((JsonString) response.getData()).getJson();
+                    List<UserListBean> data = new ArrayList<UserListBean>();
+                    try {
+                        JSONArray jsonArray = new JSONArray(jsonString);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            UserListBean bean = new UserListBean();
+
+                            bean.setChildren_num(jsonObject.getInt("children_num"));
+                            bean.setId(jsonObject.getInt("id"));
+
+                            bean.setIs_agent(jsonObject.getBoolean("is_agent"));
+
+                            bean.setGroup_account_sum(jsonObject.getString("group_account_sum"));
+                            bean.setRegister_at(jsonObject.getString("register_at"));
+                            bean.setUsername(jsonObject.getString("username"));
+
+                            data.add(bean);
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+//
+//                    List<UserListBean> data = (ArrayList<UserListBean>) response.getData();
+                    totalCount = data.size();
+                    mItems.addAll(data);
+                    if(mItems.size()>0){
+                        adapter.setData(mItems);
+                    }else{
+                        noLowerMemberShowHints();
+                    }
+
+                }
+
+
+            }
+            return true;
+        }
+
+        @Override
+        public boolean onRestError(RestRequest request, int errCode, String errDesc) {
+            if(errCode == 3004 || errCode == 2016){
+                signOutDialog(getActivity(),errCode);
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public void onRestStateChanged(RestRequest request, @RestRequest.RestState int state) {
+            if (request.getId() == ID_USER_LIST){
+                refreshLayout.setRefreshing(state == RestRequest.RUNNING);
+                isLoading = state == RestRequest.RUNNING;
+            }
+        }
+    };
+}

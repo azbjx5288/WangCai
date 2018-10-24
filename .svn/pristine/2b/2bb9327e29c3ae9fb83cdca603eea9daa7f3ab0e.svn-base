@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background"
+              android:orientation="vertical"
+              android:paddingLeft="@dimen/pad_lr"
+              android:paddingRight="@dimen/pad_lr">
+    <TextView android:id="@+id/type"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="@dimen/pad_ud"
+              android:layout_marginTop="@dimen/pad_ud"
+              android:text="账号类型："
+              android:textColor="@color/app_font_color"
+              android:textSize="@dimen/text_size_main"/>
+    <TextView android:id="@+id/qq"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="@dimen/pad_ud"
+              android:layout_marginTop="@dimen/pad_ud"
+              android:text="推广QQ："
+              android:textColor="@color/app_font_color"
+              android:textSize="@dimen/text_size_main"/>
+    <TextView android:id="@+id/valid_days"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="@dimen/pad_ud"
+              android:layout_marginTop="@dimen/pad_ud"
+              android:text="链接有效期："
+              android:textColor="@color/app_font_color"
+              android:textSize="@dimen/text_size_main"/>
+    <TextView android:id="@+id/link"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="@dimen/pad_ud"
+              android:layout_marginTop="@dimen/pad_ud"
+              android:text="链接地址："
+              android:textColor="@color/app_font_color"
+              android:textSize="@dimen/text_size_main"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pad_ud">
+        <TableRow>
+            <TextView
+                android:id="@+id/num_prize_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="数字彩奖金组："/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/jcdg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="竞彩单关："/>
+            <TextView
+                android:id="@+id/jchg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="竞彩混关："/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/ag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="AG游戏："/>
+            <TextView
+                android:id="@+id/ga"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="GA游戏："/>
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/pad_lr">
+        <Button android:id="@+id/copy"
+                style="@style/tiny_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="复制链接地址"/>
+    </LinearLayout>
+</LinearLayout>

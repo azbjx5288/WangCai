@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--时时彩选号界面-->
+    <string name="is_ssc_shi_title">十位</string>
+
+    <!-- 十一选五 -->
+    <string name="is_qv_add">+</string>
+    <string name="is_qv_remove">-</string>
+
+    <!--弹窗  -->
+    <string name="is_alert_dialog_title">提示信息</string>
+    <string name="is_alert_dialog_cancel">取消</string>
+    <string name="is_alert_dialog_ok">确定</string>
+
+    <string name="appbar_overscroll_behavior">com.wangcai.lottery.component.AppBarLayoutOverScrollViewBehavior</string>
+
+    <string name="is_version_no" formatted="false"><![CDATA[
+    版本号：VERSION
+    ]]></string>
+
+    <string name="is_shopping_list_tip" formatted="false">
+        <![CDATA[
+    请确认以下投注内容：<br>
+    ************************<br>
+    投注期号：<font color="#ff0000">ISSUE</font><br>
+    单倍注数：<font color="#ff0000">NOTE</font>注<br>
+    模&nbsp;&nbsp;式：<font color="#ff0000">UNIT</font>模式<br>
+    倍&nbsp;&nbsp;数：<font color="#ff0000">DOUBLE</font>倍<br>
+    总 金 额：￥<font color="#ff0000">MONEY</font><br>
+    ************************
+    ]]></string>
+    <string name="is_shopping_list_chasetip" formatted="false"><![CDATA[
+    请确认以下投注内容：<br>
+    ************************<br>
+    是否追号：<font color="#ff0000">是</font><br>
+    起始期号：<font color="#ff0000">ISSUE</font><br>
+    单倍注数：<font color="#ff0000">NOTE</font>注<br>
+    模&nbsp;&nbsp;式：<font color="#ff0000">UNIT</font>模式<br>
+    倍&nbsp;&nbsp;数：<font color="#ff0000">DOUBLE</font>倍<br>
+    追号期数：<font color="#ff0000">CHASENUM</font><br>
+    总 金 额：￥<font color="#ff0000">MONEY</font><br>
+    ************************
+    ]]></string>
+    <string name="is_chasetip_tip" formatted="false"><![CDATA[
+    请确认以下投注内容：<br/>
+    ************************<br>
+    选择号码：<font color="#ff0000">CODE</font><br>
+    销售期：<font color="#ff0000">ISSUE</font><br>
+    追号：<font color="#ff0000">CHASE</font>期<br>
+    ************************
+    ]]></string>
+
+    <string-array name="flowradiogroup_values">
+        <item>2元</item>
+        <item>1元</item>
+        <item>2角</item>
+        <item>1角</item>
+        <item>2分</item>
+        <item>2厘</item>
+    </string-array>
+
+    <string name="single_tip" formatted="false">
+        <![CDATA[
+        说明：
+        \n1、时时彩：每一注号码之间的间隔符支持 回车 空格 逗号[,] 分号[;] 冒号[:] 竖杠[|] 点[.]，每注内无需间隔。
+        \n2、11选5、PK10：每一注号码之间的间隔符支持 回车 逗号[,] 分号[;] 冒号[:] 竖杠[|] 点[.]，每注内间隔使用空格即可。
+        \n3、文本内容支持复制、粘贴。
+        \n4、一次投注支持5000注！
+        ]]>
+    </string>
+
+    <string name="is_recharge_orders" formatted="false">
+        <![CDATA[
+            订&nbsp;&nbsp;单&nbsp;&nbsp;号:ORDERS
+        ]]>
+    </string>
+
+    <string name="is_recharge_payamt" formatted="false">
+        <![CDATA[
+            订单金额:<font color="#ff0000">PAYAMT</font> 元
+        ]]>
+    </string>
+
+    <string name="is_currency_amount" formatted="false">
+        <![CDATA[
+            单笔充值金额为最低<font color="#ff0000">MIN</font>元，最高<font color="#ff0000">MAX</font>元。本平台不支持信用卡充值，如使用信用户充值，产生的任何损失，本平台概不负责。
+        ]]>
+    </string>
+
+    <string name="is_page_tips" formatted="false">
+        <![CDATA[
+            MODE充值方式正在维护，请您稍后再试或登录金苹果网站充值，谢谢！
+        ]]>
+    </string>
+
+    <string name="is_bank_info" formatted="false">
+        <![CDATA[
+           BANKNAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CARDNO
+        ]]>
+    </string>
+
+    <string name="is_issue_trend" formatted="false">
+        <![CDATA[
+           第 ISSUETREND 期
+        ]]>
+    </string>
+
+    <string name="is_choose_prompt" formatted="false">
+        <![CDATA[
+           选择 <font color="#ff0000">NOTE</font> 注<br>
+           <font color="#cc9900">单注最高奖金: FUND 元</font>
+        ]]>
+    </string>
+
+    <string name="msg_error">Error</string>
+    <string name="msg_invalid_value">Invalid value</string>
+    <string name="sbc_name">Google Book Search</string>
+    <string name="button_search_book_contents">Search contents</string>
+    <string name="msg_sbc_searching_book">Searching book\u2026</string>
+    <string name="msg_sbc_failed">Sorry, the search encountered a problem.</string>
+    <string name="msg_sbc_results">Results</string>
+    <string name="msg_sbc_book_not_searchable">Sorry, this book is not searchable.</string>
+    <string name="msg_sbc_page">Page</string>
+    <string name="msg_sbc_snippet_unavailable">Snippet not available</string>
+    <string name="msg_sbc_no_page_returned">No page returned</string>
+    <string name="msg_default_mms_subject">Hi</string>
+    <string name="msg_intent_failed">Sorry, the requested application could not be launched. The barcode contents may be invalid.</string>
+    <string name="button_ok">OK</string>
+    <string name="button_product_search">Product search</string>
+    <string name="button_web_search">Web search</string>
+    <string name="button_custom_product_search">Custom search</string>
+    <string name="result_product">Found product</string>
+    <string name="button_open_browser">Open browser</string>
+    <string name="button_share_by_email">Share via email</string>
+    <string name="button_share_by_sms">Share via SMS</string>
+    <string name="result_uri">Found URL</string>
+    <string name="result_wifi">Found WLAN Configuration</string>
+    <string name="wifi_changing_network">Requesting connection to network\u2026</string>
+    <string name="button_wifi">Connect to Network</string>
+    <string name="button_show_map">Show map</string>
+    <string name="button_get_directions">Get directions</string>
+    <string name="result_geo">Found geographic coordinates</string>
+    <string name="button_dial">Dial number</string>
+    <string name="button_add_contact">Add contact</string>
+    <string name="result_tel">Found phone number</string>
+    <string name="button_sms">Send SMS</string>
+    <string name="button_mms">Send MMS</string>
+    <string name="result_sms">Found SMS address</string>
+    <string name="button_add_calendar">Add to calendar</string>
+    <string name="result_calendar">Found calendar event</string>
+    <string name="button_book_search">Book Search</string>
+    <string name="result_isbn">Found book</string>
+    <string name="result_text">Found plain text</string>
+    <string name="msg_google_books">Google</string>
+    <string name="msg_redirect">Redirect</string>
+    <string name="msg_google_product">Google</string>
+    <string name="msg_default_format">Format</string>
+    <string name="menu_share">Share</string>
+    <string name="msg_default_type">Type</string>
+    <string name="msg_share_explanation">You can share data by displaying a barcode on your screen and scanning it with another phone.</string>
+    <string name="msg_default_time">Time</string>
+    <string name="msg_default_meta">Metadata</string>
+    <string name="msg_default_status">Place a barcode inside the viewfinder rectangle to scan it.</string>
+    <string name="msg_bulk_mode_scanned">Bulk mode: barcode scanned and saved</string>
+    <string name="msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>
+    <string name="button_share_app">Application</string>
+    <string name="button_share_bookmark">Bookmark</string>
+    <string name="button_share_contact">Contact</string>
+    <string name="button_share_clipboard">Clipboard</string>
+    <string name="msg_share_text">Or type some text and press Enter</string>
+    <string name="preferences_scanning_title">When scanning for barcodes, decode\u2026</string>
+    <string name="preferences_decode_1D_product_title">1D Product</string>
+    <string name="preferences_decode_1D_industrial_title">1D Industrial</string>
+    <string name="preferences_decode_QR_title">QR Codes</string>
+    <string name="preferences_decode_Data_Matrix_title">Data Matrix</string>
+    <string name="preferences_decode_Aztec_title">Aztec</string>
+    <string name="preferences_decode_PDF417_title">PDF417 (β)</string>
+    <string name="preferences_actions_title">When a barcode is found\u2026</string>
+    <string name="preferences_play_beep_title">Beep</string>
+    <string name="preferences_vibrate_title">Vibrate</string>
+    <string name="preferences_copy_to_clipboard_title">Copy to clipboard</string>
+    <string name="preferences_auto_open_web_title">Open web pages automatically</string>
+    <string name="preferences_remember_duplicates_title">Remember duplicates</string>
+    <string name="preferences_remember_duplicates_summary">Store multiple scans of the same barcode in History</string>
+    <string name="preferences_history_title">Add to History</string>
+    <string name="preferences_history_summary">Store your scans in History</string>
+    <string name="preferences_supplemental_title">Retrieve more info</string>
+    <string name="preferences_supplemental_summary">Try to retrieve more information about the barcode contents</string>
+    <string name="preferences_general_title">General settings</string>
+    <string name="preferences_front_light_title">Use front light</string>
+    <string name="preferences_front_light_summary">Improves scanning in low light on some phones, but may cause glare. Does not work on all phones.</string>
+    <string name="preferences_auto_focus_title">Use auto focus</string>
+    <string name="preferences_invert_scan_title">Invert scan</string>
+    <string name="preferences_invert_scan_summary">Scan for white barcodes on black background. Not available on some devices.</string>
+    <string name="preferences_bulk_mode_title">Bulk scan mode</string>
+    <string name="preferences_bulk_mode_summary">Scan and save many barcodes continuously</string>
+    <string name="preferences_orientation_title">No automatic rotation</string>
+    <string name="preferences_result_title">Result settings</string>
+    <string name="preferences_custom_product_search_title">Custom search URL</string>
+    <string name="preferences_custom_product_search_summary" formatted="false">Substitutions: %s = contents, %f = format, %t = type</string>
+    <string name="preferences_search_country">Search country</string>
+    <string name="preferences_device_bug_workarounds_title">Device Bug Workarounds</string>
+    <string name="preferences_disable_continuous_focus_title">No continuous focus</string>
+    <string name="preferences_disable_continuous_focus_summary">Use only standard focus mode</string>
+    <string name="preferences_disable_exposure_title">No exposure</string>
+    <string name="preferences_disable_metering_title">No metering</string>
+    <string name="preferences_disable_barcode_scene_mode_title">No barcode scene mode</string>
+    <string name="menu_history">History</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_encode_vcard">Use vCard</string>
+    <string name="history_send">Send history</string>
+    <string name="history_clear_text">Clear history</string>
+    <string name="preferences_front_light_on">On</string>
+    <string name="preferences_front_light_auto">Automatic</string>
+    <string name="preferences_front_light_off">Off</string>
+    <string name="msg_unmount_usb">Sorry, the SD card is not accessible.</string>
+    <string name="history_email_title">Barcode Scanner history</string>
+    <string name="msg_sure">Are you sure?</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="history_clear_one_history_text">Clear</string>
+    <string name="history_empty">Empty</string>
+    <string name="history_empty_detail">No barcode scans have been recorded</string>
+    <string name="button_email">Send email</string>
+    <string name="result_address_book">Found contact info</string>
+    <string name="result_email_address">Found email address</string>
+    <string name="dantiao_ssc_item1"><![CDATA[<=1000注]]></string>
+    <string name="dantiao_3d_item2225">≤100注</string>
+    <string name="dantiao_3d_item5">≤1注</string>
+    <string name="dantiao_3d_item3">≤2注</string>
+    <string name="dantiao_3d_item1">≤10注</string>
+    <string name="dantiao_kuaisan_item1">≤1注</string>
+    <string name="dantiao_kuaisan_item2">≤2注</string>
+    <string name="dantiao_11select5_item1">≤9注</string>
+    <string name="dantiao_11select5_item2">≤1注</string>
+    <string name="dantiao_11select5_item4">≤4注</string>
+    <string name="dantiao_11select5_item3">≤3注</string>
+    <string name="dantiao_ssc_item2">≤5注</string>
+    <string name="dantiao_ssc_item3">≤9注</string>
+    <string name="dantiao_ssc_item4">≤24注</string>
+    <string name="dantiao_ssc_item6"><![CDATA[<=5000注]]></string>
+    <string name="dantiao_ssc_item7">≤400注</string>
+    <string name="dantiao_ssc_item8">≤100注</string>
+    <string name="dantiao_ssc_item11"><![CDATA[<=6注]]></string>
+    <string name="dantiao_ssc_item12"><![CDATA[<=12注]]></string>
+    <string name="dantiao_ssc_item13"><![CDATA[<=30注]]></string>
+    <string name="dantiao_ssc_item14"><![CDATA[<=48注]]></string>
+    <string name="dantiao_ssc_item16"><![CDATA[<=45注]]></string>
+    <string name="dantiao_ssc_item21">≤25注</string>
+    <string name="dantiao_ssc_item24">≤24注</string>
+    <string name="dantiao_ssc_item23">≤9注</string>
+    <string name="dantiao_ssc_item22">≤4注</string>
+    <string name="dantiao_ssc_item26">≤5注</string>
+    <string name="dantiao_ssc_item32">≤10注</string>
+    <string name="dantiao_ssc_item34">≤1注</string>
+    <string name="dantiao_ssc_item33">≤2注</string>
+    <string name="dantiao_ssc_item35">≤3注</string>
+    <string name="dantiao_ssc_item44">≤40注</string>
+    <string name="dantiao_ssc_item41">≤20注</string>
+    <string name="dantiao_ssc_item42">≤2注</string>
+    <string name="dantiao_ssc_item43">≤250注</string>
+    <string name="dantiao_ssc_item45">≤50注</string>
+    <string name="dantiao_ssc_item46">≤5注</string>
+    <string name="dantiao_ssc_item47">≤1注</string>
+    <string name="dantiao_ssc_item48">≤20注</string>
+    <string name="dantiao_ssc_item51">≤3注</string>
+    <string name="dantiao_ssc_item52">≤100注</string>
+    <string name="dantiao_ssc_item53">≤5注</string>
+    <string name="dantiao_ssc_item54">≤9注</string>
+    <string name="dantiao_ssc_item55">≤24注</string>
+    <string name="dantiao_ssc_item56">≤25注</string>
+    <string name="dantiao_ssc_item57">≤10注</string>
+    <string name="dantiao_kuaile10_i1">≤12注</string>
+    <string name="dantiao_kuaile10_i11">≤87注</string>
+    <string name="dantiao_kuaile10_i21">≤3注</string>
+    <string name="dantiao_kuaile10_i121">≤66注</string>
+    <string name="dantiao_kuaile10_i221">≤11注</string>
+    <string name="dantiao_kuaile12_1">≤7注</string>
+    <string name="dantiao_kuaile12_12">≤12注</string>
+    <string name="dantiao_kuaile12_123">≤2注</string>
+    <string name="dantiao_pk10_item3">≤300注</string>
+    <string name="dantiao_pk10_item13">≤50注</string>
+    <string name="dantiao_pk10_item131">≤7注</string>
+    <string name="dantiao_renxuan_1">≤55注</string>
+    <string name="dantiao_renxuan_2">≤3注</string>
+</resources>

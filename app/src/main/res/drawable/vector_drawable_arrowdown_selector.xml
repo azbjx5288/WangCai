@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 个人感觉这里的图片不是原作者说的意思，所以意味暂时不明！有空再研究并更新 -->
+    <!--<item android:state_pressed="true" android:drawable="@drawable/ic_close_camera" />-->
+
+    <!-- 原作者说这里是文本框长度为零的时候显示的图片，但根本就不是，是不为零时显示的 -->
+    <item android:drawable="@drawable/vector_drawable_arrowdown" />
+    <item>
+        <rotate
+            android:fromDegrees="0"
+            android:pivotX="50%"
+            android:pivotY="100%"
+            android:toDegrees="0">
+            <shape>
+                <solid android:color="@color/app_main" />
+                <stroke
+                    android:width="1dp"
+                    android:color="@color/app_main" />
+            </shape>
+        </rotate>
+    </item>
+</selector>

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+    >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:paddingLeft="20dp"
+            >
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="帐号类型:"
+                    android:textColor="#333333"
+                    android:textSize="16sp"/>
+
+                <RadioGroup
+                    android:id="@+id/user_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/proxy"
+                        android:layout_width="109dp"
+                        android:layout_height="45dp"
+                        android:gravity="center"
+                        android:checked="true"
+                        android:background="@drawable/open_account_accurate_bg_selector"
+                        android:textSize="18sp"
+                        android:button="@null"
+                        android:textColor="@drawable/open_account_accurate_textcolor_selector"
+                        android:text="代理"/>
+
+                    <RadioButton
+                        android:id="@+id/user"
+                        android:layout_width="109dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="30dp"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:background="@drawable/open_account_accurate_bg_selector"
+                        android:button="@null"
+                        android:textColor="@drawable/open_account_accurate_textcolor_selector"
+                        android:text="玩家"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:text="账号信息："
+                android:textColor="#333333"
+                android:textSize="16sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="20dp"
+                android:orientation="horizontal"
+                android:background="@color/white"
+            >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:text="设置登录账号："/>
+
+                <EditText
+                    android:id="@+id/user_name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:textColor="#cccccc"
+                    android:textColorHint="#cccccc"
+                    android:hint="字母和数字组成6-16个字符(第一个需为字母)"
+                    android:textSize="12sp"
+                />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+            >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:text="设置登录密码："/>
+
+                <EditText
+                    android:id="@+id/user_password"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:textColor="#cccccc"
+                    android:textColorHint="#cccccc"
+                    android:hint="由字母和数字组成6-16个字符"
+                    android:maxLines="1"
+                    android:textSize="12sp"
+                />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+            >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:text="设  置  昵  称："/>
+
+                <EditText
+                    android:id="@+id/nick_name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:textColor="#cccccc"
+                    android:textColorHint="#cccccc"
+                    android:hint="由2-16个字符组成"
+                    android:maxLines="1"
+                    android:textSize="12sp"
+                />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:text="奖金组："/>
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+            >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:text="数字彩："/>
+
+                <EditText
+                    android:id="@+id/bonus_counts"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:paddingLeft="5dp"
+                    android:background="@drawable/shape_rounded_bg2"
+                    android:gravity="center_vertical"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textColor="#666666"
+                    android:textColorHint="#666666"
+                    android:textSize="14sp"
+                />
+                <TextView
+                    android:id="@+id/bonus_rebate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="对应返点0.00%"/>
+
+            </LinearLayout>
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_marginStart="60dp"-->
+                <!--android:text="最高可设置1960"/>-->
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:text="游戏返点："/>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:text="竞彩足球："-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16sp"/>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+            >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#333333"
+                    android:gravity="right"
+                    android:text="竞彩单关："/>
+
+                <EditText
+                    android:id="@+id/bonus_danguan"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/shape_rounded_bg2"
+                    android:gravity="center_vertical"
+                    android:hint="0"
+                    android:inputType="number|numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:text="0.0"
+                    android:textColor="#666666"
+                    android:textColorHint="#666666"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/bonus_danguan_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+            >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#333333"
+                    android:gravity="right"
+                    android:text="混合过关："/>
+
+                <EditText
+                    android:id="@+id/bonus_hunhe"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/shape_rounded_bg2"
+                    android:gravity="center_vertical"
+                    android:hint="0"
+                    android:inputType="number|numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:text="0.0"
+                    android:textColor="#666666"
+                    android:textColorHint="#666666"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/bonus_hunhe_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+            >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#333333"
+                    android:gravity="right"
+                    android:text="AG 游 戏 ："/>
+
+                <EditText
+                    android:id="@+id/bonus_ag"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/shape_rounded_bg2"
+                    android:gravity="center_vertical"
+                    android:hint="0.0"
+                    android:inputType="number|numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:text="0.0"
+                    android:textColor="#666666"
+                    android:textColorHint="#666666"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/bonus_ag_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+            >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#333333"
+                    android:gravity="right"
+                    android:text="GA 游 戏 ："/>
+
+                <EditText
+                    android:id="@+id/bonus_game"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/shape_rounded_bg2"
+                    android:gravity="center_vertical"
+                    android:hint="0.0"
+                    android:inputType="number|numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:text="0.0"
+                    android:textColor="#666666"
+                    android:textColorHint="#666666"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/bonus_game_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:padding="5dp">
+
+            <Button
+                android:id="@+id/rebates_setting_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_type"
+                android:text="确定"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

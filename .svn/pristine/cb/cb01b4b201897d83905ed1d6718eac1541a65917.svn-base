@@ -1,0 +1,433 @@
+package com.wangcai.lottery.fragment;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.gson.reflect.TypeToken;
+import com.wangcai.lottery.R;
+import com.wangcai.lottery.app.BaseFragment;
+import com.wangcai.lottery.base.net.JsonString;
+import com.wangcai.lottery.base.net.RestCallback;
+import com.wangcai.lottery.base.net.RestRequest;
+import com.wangcai.lottery.base.net.RestRequestManager;
+import com.wangcai.lottery.base.net.RestResponse;
+import com.wangcai.lottery.data.GetUserLetterInfoBean;
+import com.wangcai.lottery.data.GetUserLetterInfoCommand;
+import com.wangcai.lottery.data.SendMsgCommand;
+import com.wangcai.lottery.data.UserListBean;
+import com.wangcai.lottery.data.UserListCommand;
+import com.wangcai.lottery.view.CustomScrollView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+
+public class WriteEmailFragment extends BaseFragment implements RadioGroup.OnCheckedChangeListener{
+
+    private  final int TRACE_SENDMSG_COMMAND = 1;
+    private  final int TRACE_LOWER_ID = 2;
+    private  final int GETUSERLETTER_INFO_COMMAND=3;
+
+    @BindView(R.id.manner_radiogroup)
+    RadioGroup mannerRadiogroup;
+    @BindView(R.id.ownership)
+    RadioButton ownership;
+    @BindView(R.id.prefect)
+    RadioButton prefect;
+    @BindView(R.id.follower)
+    RadioButton follower;
+
+    @BindView(R.id.addressee)
+    Spinner spinner ;
+    @BindView(R.id.add_user)
+    ImageView addUser;
+    @BindView(R.id.title_text)
+    EditText titleText;
+    @BindView(R.id.multiline_text)
+    EditText multilineText;
+    @BindView(R.id.scrollView)
+    CustomScrollView scrollView;
+    @BindView(R.id.send_member)
+    LinearLayout send_member;
+    @BindView(R.id.submit)
+    Button submit;
+    private int page = 1;
+
+    private List<UserListBean> mLowerList = new ArrayList<>();
+    private  ArrayList<String> mLowerNameList= new ArrayList<>();
+    private  boolean  mIsTopAgent=false;//是否是总代
+
+    private  int  mUserType=1;//1:上级2:所有下级3:单一下级
+    private  int  mReceiver;//1:上级2:所有下级3:单一下级
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflateView(inflater, container, "发信息", R.layout.fragment_writeemail,true,true);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mannerRadiogroup.setOnCheckedChangeListener(this);
+
+//        loadUserList();
+
+        GetUserLetterInfoCommand command2 = new GetUserLetterInfoCommand();
+        executeCommand(command2, restCallback, GETUSERLETTER_INFO_COMMAND);;
+    }
+
+    private void loadUserList() {
+        UserListCommand command = new UserListCommand();
+        command.setPage(page);
+        TypeToken typeToken = new TypeToken<RestResponse<ArrayList<UserListBean>>>() {};
+        RestRequest restRequest = RestRequestManager.createRequest(getActivity(), command, typeToken, restCallback, TRACE_LOWER_ID, this);
+        restRequest.execute();
+    }
+
+//    private void loadUserList() {
+//        UserListCommand command = new UserListCommand();
+//        command.setPage(page);
+//        TypeToken typeToken = new TypeToken<RestResponse<ArrayList<UserListBean>>>() {};
+//        RestRequest restRequest = RestRequestManager.createRequest(getActivity(), command, typeToken, restCallback, TRACE_LOWER_ID, this);
+//        restRequest.execute();
+//    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroyView() {
+        getActivity().finish();
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        switch (checkedId) {
+            case R.id.prefect:
+                mUserType=2;
+                send_member.setVisibility(View.GONE);
+                break;
+            case R.id.follower:
+                mUserType=3;
+                send_member.setVisibility(View.VISIBLE);
+                break;
+            case R.id.ownership:
+                mUserType=1;
+                send_member.setVisibility(View.GONE);
+                break;
+        }
+    }
+    @OnClick(R.id.add_user)
+    public void addUser() {
+        if(mLowerList.size()==0){
+            tipDialog("没有下级");
+        }
+
+        spinner.performClick();
+    }
+
+    @OnClick({R.id.submit})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.submit:
+                SendMsgCommand sendMsgCommand = new SendMsgCommand();
+                String title = titleText.getText().toString();
+                String multiline = multilineText.getText().toString();
+                if (title.isEmpty()) {
+                    showToast("请输入标题", Toast.LENGTH_SHORT);
+                    return;
+                }
+                if (title.length()>20) {
+                    showToast("标题最多20个字符", Toast.LENGTH_SHORT);
+                    return;
+                }
+                if (multiline.isEmpty()) {
+                    showToast("请输入邮件内容", Toast.LENGTH_SHORT);
+                    return;
+                }
+
+                if(mLowerList.size()==0){
+                    if(mUserType==2||mUserType==3){//1:上级2:所有下级3:单一下级)
+                        showToast("没有收信人", Toast.LENGTH_SHORT);
+                        return;
+                    }
+                }
+
+                sendMsgCommand.setTitle(title);
+                sendMsgCommand.setContent(multiline);
+                sendMsgCommand.setUser_type(mUserType);
+                if(mUserType==3){
+                    sendMsgCommand.setReceiver(mReceiver);
+                }
+//                submit.setEnabled(false);
+                executeCommand(sendMsgCommand, restCallback, TRACE_SENDMSG_COMMAND);
+                break;
+        }
+    }
+
+    private RestCallback restCallback = new RestCallback() {
+        @Override
+        public boolean onRestComplete(RestRequest request, RestResponse response) {
+            switch (request.getId()) {
+                case TRACE_LOWER_ID:
+                    if (response != null && response.getData() instanceof GetUserLetterInfoBean) {
+
+                        GetUserLetterInfoBean mGetUserLetterInfoBean=  (GetUserLetterInfoBean)response.getData();
+
+                        List<GetUserLetterInfoBean.ChildBean> lowerList =mGetUserLetterInfoBean.getChild();
+
+                        ArrayList<String> lowerNameList= new ArrayList<String>();
+//                        lowerNameList.add("请选择某一个下级");
+                        for (int i = 0; i < lowerList.size(); i++) {
+                            lowerNameList.add(lowerList.get(i).getUsername());
+                        }
+                        mLowerList.clear();
+                        mLowerNameList.clear();
+                        MyAdapter adapter =  new MyAdapter();
+                        spinner.setAdapter(adapter);
+                        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view,
+                                                       int position, long id) {
+                                mReceiver=mLowerList.get(position).getId();
+                            }
+                            @Override
+                            public void onNothingSelected(AdapterView<?> arg0) {
+                            }
+
+                        });
+
+//                        if(page==1){
+//                            mLowerList.clear();
+//                            mLowerNameList.clear();
+//                            mLowerList.addAll(lowerList);
+//                            mLowerNameList.addAll(lowerNameList);
+//
+//                            MyAdapter adapter =  new MyAdapter();
+//                            spinner.setAdapter(adapter);
+//                            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                                @Override
+//                                public void onItemSelected(AdapterView<?> parent, View view,
+//                                                           int position, long id) {
+//                                    mReceiver=mLowerList.get(position).getId();
+//                                }
+//                                @Override
+//                                public void onNothingSelected(AdapterView<?> arg0) {
+//                                }
+//
+//                            });
+//
+//                        }else{
+//                            mLowerList.addAll(lowerList);
+//                            mLowerNameList.addAll(lowerNameList);
+//                        }
+
+//                        if(lowerList.size()>0){
+//                            page++;
+//                            loadUserList();
+//                        }
+
+                        mIsTopAgent=mGetUserLetterInfoBean.isIs_top_agent();
+
+                        GetUserLetterInfoBean.UserTypeBean user_type= mGetUserLetterInfoBean.getUser_type();
+                       if(user_type.get_$1()==null){
+                           ownership.setVisibility(View.GONE);
+                       }else{
+                           ownership.setVisibility(View.VISIBLE);
+                       }
+
+                        if(user_type.get_$2()==null){
+                            prefect.setVisibility(View.GONE);
+                        }else{
+                            prefect.setVisibility(View.VISIBLE);
+                        }
+
+
+                        if(user_type.get_$3()==null){
+                            follower.setVisibility(View.GONE);
+                        }else{
+                            follower.setVisibility(View.VISIBLE);
+                        }
+                    }
+                    break;
+                case TRACE_SENDMSG_COMMAND:
+                    submit.setEnabled(true);
+//                    showToast(response.getError());
+                    tipDialog(response.getError());
+                    break;
+                case GETUSERLETTER_INFO_COMMAND:
+                    String jsonString= ((JsonString) response.getData()).getJson();
+                    try {
+                        JSONObject jsonObject = new JSONObject(jsonString);
+                        mIsTopAgent=jsonObject.getBoolean("is_top_agent");
+                        JSONObject user_typeJsonObject = jsonObject.getJSONObject("user_type");
+
+
+                        if(user_typeJsonObject.has("1")){
+                            String  OneJsonObject=user_typeJsonObject.getString("1");
+                            if(TextUtils.isEmpty(OneJsonObject)){
+                                ownership.setVisibility(View.GONE);
+                            }else{
+                                ownership.setVisibility(View.VISIBLE);
+                            }
+                        }else{
+                            ownership.setVisibility(View.GONE);
+                        }
+
+                        if(user_typeJsonObject.has("2")){
+                            String  twoJsonObject=user_typeJsonObject.getString("2");
+                            if(TextUtils.isEmpty(twoJsonObject)){
+                                prefect.setVisibility(View.GONE);
+                            }else{
+                                prefect.setVisibility(View.VISIBLE);
+                            }
+
+                        }else{
+                            prefect.setVisibility(View.GONE);
+                        }
+
+                        if(user_typeJsonObject.has("3")){
+                            String  threeJsonObject=user_typeJsonObject.getString("3");
+                            if(TextUtils.isEmpty(threeJsonObject)){
+                                follower.setVisibility(View.GONE);
+                            }else{
+                                follower.setVisibility(View.VISIBLE);
+                            }
+
+                        }else{
+                            follower.setVisibility(View.GONE);
+                        }
+
+
+                        JSONArray childJSONArray = jsonObject.getJSONArray("child");
+
+                        if(childJSONArray==null){
+                            return true;
+                        }
+
+                        List<UserListBean> lowerList =new ArrayList<UserListBean>();
+
+                        for(int i=0;i<childJSONArray.length();i++){
+                            UserListBean bean=new UserListBean();
+                            JSONObject jsonObject1=childJSONArray.getJSONObject(i);
+
+                            bean.setId(jsonObject1.getInt("id"));
+                            bean.setIs_agent(jsonObject1.getInt("is_agent")==1?true:false);
+                            bean.setUsername(jsonObject1.getString("username"));
+
+                            lowerList.add(bean);
+                        }
+
+
+                        ArrayList<String> lowerNameList= new ArrayList<String>();
+//                        lowerNameList.add("请选择某一个下级");
+                        for (int i = 0; i < lowerList.size(); i++) {
+                            lowerNameList.add(lowerList.get(i).getUsername());
+                        }
+                        mLowerList.clear();
+                        mLowerNameList.clear();
+                        mLowerList.addAll(lowerList);
+                        mLowerNameList.addAll(lowerNameList);
+                        MyAdapter adapter =  new MyAdapter();
+                        spinner.setAdapter(adapter);
+                        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view,
+                                                       int position, long id) {
+                                mReceiver=mLowerList.get(position).getId();
+                            }
+                            @Override
+                            public void onNothingSelected(AdapterView<?> arg0) {
+                            }
+
+                        });
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+//                    if(mIsTopAgent){
+//                        ownership.setVisibility(View.INVISIBLE);
+//                    }else {
+//                        ownership.setVisibility(View.VISIBLE);
+//                    }
+
+
+
+                    break;
+            }
+            return true;
+        }
+
+        @Override
+        public boolean onRestError(RestRequest request, int errCode, String errDesc) {
+            if(errCode == 3004 || errCode == 2016){
+                signOutDialog(getActivity(),errCode);
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public void onRestStateChanged(RestRequest request, @RestRequest.RestState int state) {
+
+        }
+    };
+
+    private class MyAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return mLowerNameList.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return mLowerNameList.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            View view =  LayoutInflater.from(getActivity()).inflate(R.layout.writeemail_spinner_item, null);
+            if (mLowerList.get(position).getId() == mReceiver){
+                //选中条目的背景色
+                view.setBackgroundColor(Color.rgb(26,208,189));
+            }
+            final TextView tv_name = (TextView) view.findViewById(R.id.tv_name);
+            tv_name.setText(mLowerNameList.get(position));
+            //设置按钮的监听事件
+            view.setTag(tv_name);
+            return view;
+        }
+    }
+
+}

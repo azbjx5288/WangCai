@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f2f2f2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp">
+
+            <LinearLayout
+                android:id="@+id/digit_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/wan_check"
+                    style="@style/checkbox_style"
+                    android:tag="wan"
+                    android:text="万位" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/qian_check"
+                    style="@style/checkbox_style"
+                    android:tag="qian"
+                    android:text="千位" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/bai_check"
+                    style="@style/checkbox_style"
+                    android:tag="bai"
+                    android:text="百位" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/shi_check"
+                    style="@style/checkbox_style"
+                    android:tag="shi"
+                    android:text="十位" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/ge_check"
+                    style="@style/checkbox_style"
+                    android:tag="ge"
+                    android:text="个位" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/input_multiline_text"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:gravity="top"
+                android:hint="输入注单后，点击输入框以外的非按钮区域，系统将自动计算有效注数。"
+                android:imeActionLabel="完成"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:maxLines="6"
+                android:minLines="3"
+                android:scrollbars="vertical"
+                android:textColorHint="@color/gray" />
+
+            <Button
+                android:id="@+id/calculate"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/button_type"
+                android:gravity="center"
+                android:text="计算注数"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/clear"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_type"
+                android:gravity="center"
+                android:text="清空"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/single_tip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loading_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/halfTransparent"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="正在受理您的注单，请稍候..."
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            style="@style/text_styles"
+            android:text="最低收益率：" />
+
+        <com.goldenapple.lottery.component.LastInputEditText
+            android:id="@+id/plan_way"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edittext"
+            android:digits="1234567890"
+            android:gravity="center"
+            android:hint="1"
+            android:inputType="number"
+            android:singleLine="true"
+            android:text="50"
+            android:textColor="@color/tiger"
+            android:textColorHint="@color/text_middle" />
+
+        <TextView
+            style="@style/text_styles"
+            android:text="%" />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="追" />
+
+        <com.goldenapple.lottery.component.LastInputEditText
+            android:id="@+id/plan_issueno"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edittext"
+            android:digits="1234567890"
+            android:gravity="center"
+            android:hint="1"
+            android:singleLine="true"
+            android:text="5"
+            android:textColor="@color/tiger"
+            android:textColorHint="@color/text_middle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="期" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <LinearLayout
+        android:id="@+id/rule_samefactor"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="起始" />
+
+        <com.goldenapple.lottery.component.LastInputEditText
+            android:id="@+id/plan_multiple"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edittext"
+            android:digits="1234567890"
+            android:gravity="center"
+            android:hint="1"
+            android:imeActionLabel="生成计划"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:text="1"
+            android:textColor="@color/tiger"
+            android:textColorHint="@color/text_middle"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="倍" />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent" />
+
+        <CheckBox
+            android:id="@+id/add_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="追中即停" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="match_parent" />
+
+        <!--<Button
+            android:id="@+id/plan_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/shape_rec_button_un"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="利润方案设置>"
+            android:textSize="@dimen/text_size_tiny" />-->
+
+        <Button
+            android:id="@+id/confirm_plan"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_type"
+            android:gravity="center"
+            android:text="生成计划"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

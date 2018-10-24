@@ -1,0 +1,831 @@
+package com.wangcai.lottery.fragment;
+
+import android.content.Intent;
+import android.graphics.PathMeasure;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.text.Html;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.wangcai.lottery.BuildConfig;
+import com.wangcai.lottery.R;
+import com.wangcai.lottery.app.BaseFragment;
+import com.wangcai.lottery.app.FragmentLauncher;
+import com.wangcai.lottery.app.WangCaiApp;
+import com.wangcai.lottery.base.Preferences;
+import com.wangcai.lottery.base.net.GsonHelper;
+import com.wangcai.lottery.base.net.RestCallback;
+import com.wangcai.lottery.base.net.RestRequest;
+import com.wangcai.lottery.base.net.RestRequestManager;
+import com.wangcai.lottery.base.net.RestResponse;
+import com.wangcai.lottery.component.AdaptHighListView;
+import com.wangcai.lottery.component.BGABadgeImageView;
+import com.wangcai.lottery.component.CustomDialog;
+import com.wangcai.lottery.component.DialogLayout;
+import com.wangcai.lottery.component.ScrollDownLayout;
+import com.wangcai.lottery.data.Lottery;
+import com.wangcai.lottery.data.LotteryCode;
+import com.wangcai.lottery.data.LotteryCodeCommand;
+import com.wangcai.lottery.data.Method;
+import com.wangcai.lottery.data.MethodList;
+import com.wangcai.lottery.data.MethodListCommand;
+import com.wangcai.lottery.data.MethodType;
+import com.wangcai.lottery.game.Game;
+import com.wangcai.lottery.game.GameConfig;
+import com.wangcai.lottery.game.MenuController;
+import com.wangcai.lottery.game.OnSelectedListener;
+import com.wangcai.lottery.material.ShoppingCart;
+import com.wangcai.lottery.material.Ticket;
+import com.wangcai.lottery.pattern.TitleTimingView;
+import com.wangcai.lottery.view.TableMenu;
+import com.wangcai.lottery.view.adapter.GameStickResultAdapter;
+import com.google.gson.reflect.TypeToken;
+import com.michael.easydialog.EasyDialog;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+import butterknife.OnTouch;
+import cn.bingoogolapple.badgeview.BGABadgeable;
+
+/**
+ * Created by ACE-PC on 2018/4/13.
+ * 重新游戏选号页面
+ */
+
+public class GameStickNavFragment extends BaseFragment implements OnSelectedListener, TableMenu.OnClickMethodListener, ScrollDownLayout.OnScrollChangedListener {
+
+    private static final String TAG = GameStickNavFragment.class.getSimpleName();
+
+    private static final int ID_METHOD_LIST = 1;
+    private static final int ID_RESULT_LIST = 2;
+
+    @BindView(R.id.parent_layout)
+    RelativeLayout parentLayout;
+    @BindView(R.id.help)
+    ImageButton help;
+    @BindView(R.id.trend)
+    ImageButton trend;
+    @BindView(R.id.customize_title)
+    RelativeLayout customizeTitle;
+    @BindView(android.R.id.title)
+    TextView titleView;
+    @BindView(R.id.issueresult_list)
+    AdaptHighListView issueResultList;
+    @BindView(R.id.scroll_down_layout)
+    ScrollDownLayout slideLayout;
+    @BindView(R.id.pick_game_layout)
+    LinearLayout pickGameLayout;
+    @BindView(R.id.lottery_choose_bottom)
+    LinearLayout chooseBottomLayout;
+    @BindView(R.id.pick_notice)
+    TextView pickNoticeView;
+    /*@BindView(R.id.pick_random)
+    Button pickRandom;*/
+//    @BindView(R.id.choose_done_button)
+//    ImageButton addButton;
+    @BindView(R.id.shopping_cart)
+    BGABadgeImageView shoppingCartIcon;
+
+    WebView webView;
+    private TitleTimingView timingView;
+    private ArrayList<MethodList> methodListRecord;
+    private MenuController menuController;
+    private GameStickResultAdapter resultAdapter;
+    private MethodType methodTypeRecord;
+    private PathMeasure pathMeasure;
+    private Game game;
+    private Lottery lottery;
+    private Method methodRecord;
+    private ShoppingCart shoppingCart;
+    private String issueLogger;
+    private ArrayList<LotteryCode> resultList = new ArrayList<>();
+    /**
+     * 贝塞尔曲线中间过程的点的坐标
+     */
+    private float[] mCurrentPosition = new float[2];
+
+    public static void launch(BaseFragment fragment, Lottery lottery) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("lottery", lottery);
+        FragmentLauncher.launch(fragment.getActivity(), GameStickNavFragment.class, bundle);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.game_sticknav_fragment, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        applyArguments();
+        initView();
+        loadMethodFromXml();
+
+        switch (lottery.getSeriesId()) {
+            case 1://重庆时时彩
+            case 4://苹果快三分分彩
+            case 5://苹果极速PK10
+                trend.setVisibility(View.VISIBLE);
+                break;
+            default:
+                trend.setVisibility(View.GONE);
+                break;
+        }
+    }
+
+    //初始化彩种信息
+    private void applyArguments() {
+        lottery = (Lottery) getArguments().getSerializable("lottery");
+        shoppingCart = ShoppingCart.getInstance();
+    }
+
+    private void initView() {
+        menuController = new MenuController(getActivity(), lottery);
+        menuController.setOnClickMethodListener(this);
+
+        resultAdapter = new GameStickResultAdapter(lottery, getContext());
+        issueResultList.setAdapter(resultAdapter);
+
+        slideLayout.setToClosed();
+        slideLayout.setIsSupportExit(false);
+        slideLayout.setAllowHorizontalScroll(true);
+        slideLayout.setOnScrollChangedListener(this);
+
+        shoppingCartIcon.showCirclePointBadge();
+        shoppingCartIcon.setDragDismissDelegate((BGABadgeable badgeable) -> {
+            if (shoppingCart.getPlanNotes() > 0) {
+                CustomDialog.Builder builder = new CustomDialog.Builder(getContext());
+                builder.setMessage("您想清空已经选择的号码吗？");
+                builder.setTitle("温暖馨提示！");
+                builder.setLayoutSet(DialogLayout.LEFT_AND_RIGHT);
+                builder.setPositiveButton("确定", (dialog, which) -> {
+                    shoppingCart.clear();
+                    cartOrders(shoppingCart.getPlanNotes());
+                    dialog.dismiss();
+                });
+                builder.setNegativeButton("取消", (dialog, which) -> {
+                    cartOrders(shoppingCart.getPlanNotes());
+                    dialog.dismiss();
+                });
+                builder.create().show();
+            } else {
+                cartOrders(shoppingCart.getPlanNotes());
+            }
+        });
+    }
+
+    private void setExtension(int min, int max) {
+        slideLayout.setMinOffset(min);
+        slideLayout.setMaxOffset(max);
+    }
+
+    private void loadTimingView(int methodID) {
+        timingView = new TitleTimingView(getActivity(), findViewById(R.id.game_timing_view), lottery, methodID);
+        timingView.setOnClickTrendListener(() -> {
+            if (slideLayout.getCurrentStatus() == ScrollDownLayout.Status.OPENED) {
+                slideLayout.setToClosed();
+            } else {
+                slideLayout.setToOpen();
+            }
+        });
+        timingView.setOnUpdatedListener((String issue) -> {
+            issueLogger = issue;
+            loadIssueResult();
+        });
+    }
+
+    private void choosePrompt(long num) {
+        if (methodRecord == null) {
+            return;
+        }
+        String pickNotice = getActivity().getResources().getString(R.string.is_choose_prompt);
+        pickNotice = StringUtils.replaceEach(pickNotice, new String[]{"NOTE", "FUND"}, new String[]{String.format("%d", num), methodRecord.getMaxPrize()});
+        pickNoticeView.setText(Html.fromHtml(pickNotice).toString());
+    }
+
+    private void cartOrders(long notes) {
+        shoppingCartIcon.showTextBadge("" + notes);
+    }
+
+    private void showBubble() {
+        TextView bubbleText = new TextView(getContext());
+        if (methodRecord != null) {
+            bubbleText.setText(TextUtils.isEmpty(methodRecord.getBonusNote()) ? "数据加载失败" : methodRecord.getBonusNote());
+        }
+
+        new EasyDialog(getActivity())
+                .setLayout(bubbleText)
+                .setGravity(EasyDialog.GRAVITY_BOTTOM)
+                .setBackgroundColor(getResources().getColor(R.color.background))
+                .setLocationByAttachedView(help)
+                .setAnimationTranslationShow(EasyDialog.DIRECTION_X, 350, 400, 100, -50, 50, 0)
+                .setAnimationAlphaShow(350, 0.3f, 1.0f)
+                .setAnimationTranslationDismiss(EasyDialog.DIRECTION_X, 350, -50, 400)
+                .setAnimationAlphaDismiss(350, 1.0f, 0.0f)
+                .setTouchOutsideDismiss(true)
+                .setMatchParent(false)
+                .setMarginLeftAndRight(24, 24)
+                .setOutsideColor(getResources().getColor(R.color.halfTransparent))
+                .show();
+    }
+
+    @OnClick(android.R.id.home)
+    public void finishFragment() {
+        if (shoppingCart.getPlanNotes() > 0) {
+            CustomDialog.Builder builder = new CustomDialog.Builder(getContext());
+            builder.setMessage("退出将清空已选注单");
+            builder.setTitle("您要退出" + lottery.getName() + "吗？");
+            builder.setLayoutSet(DialogLayout.SINGLE);
+            builder.setPositiveButton("确定", (dialog, which) -> {
+                dialog.dismiss();
+                shoppingCart.clear();
+                getActivity().finish();
+            });
+            builder.setNegativeButton("取消", (dialog, which) -> {
+                dialog.dismiss();
+            });
+            builder.create().show();
+        } else {
+            getActivity().finish();
+        }
+        hideSoftKeyBoard();
+    }
+
+    @OnClick({R.id.title_text_layout, android.R.id.title, R.id.title_image})
+    public void showOrHideMenu(View v) {
+        hideSoftKeyBoard();
+        Log.d(TAG, "showOrHideMenu: ");
+        if (menuController.isShowing()) {
+            menuController.hide();
+        } else {
+            menuController.show(customizeTitle);
+        }
+    }
+
+    @OnClick(R.id.trend)
+    public void showTrend() {
+//        Bundle bundle = new Bundle();
+//        bundle.putSerializable("lottery", lottery);
+//        FragmentLauncher.launch(getActivity(), ChartTrendWebviewFragment.class, bundle);
+
+
+
+
+
+        String url = WangCaiApp.getInstance().getBaseUrl() +"/trend?lottery_id=" + lottery.getId();
+
+       // if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Bundle bundle = new Bundle();
+            bundle.putString("url", url);
+            launchFragment(WebViewFragment.class, bundle);
+      /*  }else{
+            Uri CONTENT_URI_BROWSERS=Uri.parse(url);
+
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setData(CONTENT_URI_BROWSERS);//Url 就是你要打开的网址x
+            // 注意此处的判断intent.resolveActivity()可以返回显示该Intent的Activity对应的组件名
+            // 官方解释 : Name of the component implementing an activity that can display the intent
+            if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                final ComponentName componentName = intent.resolveActivity(getActivity().getPackageManager());
+                // 打印Log   ComponentName到底是什么
+                Log.e(TAG, "componentName = " + componentName.getClassName());
+                startActivity(Intent.createChooser(intent, "请选择浏览器"));
+            } else {
+                Toast.makeText(getActivity().getApplicationContext(), "没有匹配的程序", Toast.LENGTH_SHORT).show();
+            }
+        }*/
+
+
+    }
+
+    @OnClick(R.id.help)
+    public void showHelp() {
+        showBubble();
+    }
+
+    /*@OnClick(R.id.pick_random)
+    public void onRandom() {
+        if (game != null) {
+            game.onRandomCodes();
+        }
+    }*/
+
+    @OnClick(R.id.pick_notice)
+    public void calculate() {
+        if (game == null) {
+            return;
+        }
+        choosePrompt(game.getSingleNum());
+        if (game.getSingleNum() > 0) {
+            shoppingCartIcon.setEnabled(true);
+        } else {
+            shoppingCartIcon.setEnabled(!shoppingCart.isEmpty());
+        }
+    }
+
+    /**
+     * 添加购物车
+     */
+    @OnClick(R.id.choose_done_button)
+    public void onChooseDone() {
+        if (game == null) {
+            return;
+        }
+        if (game.getSingleNum() > 0) {
+            String codes = game.getSubmitCodes();
+            Ticket ticket = new Ticket();
+            ticket.setMethodType(methodTypeRecord);
+            ticket.setChooseMethod(game.getMethod());
+            ticket.setChooseNotes(game.getSingleNum());
+            ticket.setCodes(codes);
+
+            shoppingCart.init(lottery);
+            shoppingCart.addTicket(ticket);
+        }
+        cartOrders(shoppingCart.getPlanNotes());
+    }
+
+    @OnClick(R.id.shopping_cart)
+    public void onShoppingCart() {
+        if (game == null) {
+            return;
+        }
+        if (game.getSingleNum() > 0) {
+            String codes = game.getSubmitCodes();
+            Ticket ticket = new Ticket();
+            ticket.setMethodType(methodTypeRecord);
+            ticket.setChooseMethod(game.getMethod());
+            ticket.setChooseNotes(game.getSingleNum());
+            ticket.setPostsiton(TextUtils.isEmpty(game.getPostsiton()) ? "" : game.getPostsiton());
+            ticket.setSeat(!TextUtils.isEmpty(game.getSeat()) ? game.getSeat() : "");
+            ticket.setCodes(codes);
+
+            shoppingCart.init(lottery);
+            shoppingCart.addTicket(ticket);
+        }
+        cartOrders(shoppingCart.getPlanNotes());
+
+        if (shoppingCart.getPlanNotes() > 0) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("lottery", lottery);
+            ShoppingFragment.launch(GameStickNavFragment.this, lottery);
+        }
+    }
+
+    @Override
+    public void onScrollProgressChanged(float currentProgress) {
+
+    }
+
+    @Override
+    public void onScrollFinished(ScrollDownLayout.Status currentStatus) {
+        if (currentStatus.equals(ScrollDownLayout.Status.EXIT)) {
+            getActivity().finish();
+        }
+    }
+
+    @Override
+    public void onChildScroll(int top) {
+
+    }
+
+    private void saveMethod2Xml(MethodType methodType, Method method) {
+        String methodTypeKey = "game_config_methodtype_" + WangCaiApp.getUserCentre().getUserID() + "_" + lottery.getId();
+        Preferences.saveString(getContext(), methodTypeKey, GsonHelper.toJson(methodType));
+
+        String methodKey = "game_config_method_" + WangCaiApp.getUserCentre().getUserID() + "_" + lottery.getId();
+        Preferences.saveString(getContext(), methodKey, GsonHelper.toJson(method));
+    }
+
+    private void loadMethodFromXml() {
+        String methodTypeKey = "game_config_methodtype_" + WangCaiApp.getUserCentre().getUserID() + "_" + lottery.getId();
+        String methodTypeJson = Preferences.getString(getContext(), methodTypeKey, null);
+
+        String methodKey = "game_config_method_" + WangCaiApp.getUserCentre().getUserID() + "_" + lottery.getId();
+        String methodJson = Preferences.getString(getContext(), methodKey, null);
+
+        if (!TextUtils.isEmpty(methodJson) && !TextUtils.isEmpty(methodTypeJson)) {
+            methodTypeRecord = GsonHelper.fromJson(methodTypeJson, MethodType.class);
+            methodRecord = GsonHelper.fromJson(methodJson, Method.class);
+            if (methodTypeRecord != null && methodRecord != null) {
+                changeGameMethod(methodTypeRecord, methodRecord);
+            }
+        }
+    }
+
+    private void loadWebViewIfNeed() {
+        if (webView != null) {
+            return;
+        }
+        if (chooseBottomLayout != null) {
+            chooseBottomLayout.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    synchronized (chooseBottomLayout) {
+                        if (isFinishing()) {
+                            return;
+                        }
+                        if (webView != null) {
+                            update2WebView();
+                            return;
+                        }
+                        webView = new WebView(getActivity());
+                        initWebView();
+                        chooseBottomLayout.addView(webView, 1, 1);
+
+                        webView.loadUrl("file:///android_asset/web/game.html");
+                    }
+                }
+            }, 400);
+        }
+    }
+
+    private void initWebView() {
+        webView.setOverScrollMode(WebView.OVER_SCROLL_ALWAYS);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            WebView.setWebContentsDebuggingEnabled(BuildConfig.DEBUG);
+        }
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setSupportZoom(false);
+        webSettings.setBuiltInZoomControls(false);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setSupportMultipleWindows(true);
+        webSettings.setAppCacheEnabled(true);
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+
+        webSettings.setJavaScriptEnabled(true);
+        webView.addJavascriptInterface(new JsInterface(), "androidJs");
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (game != null) {
+            game.reset();
+        }
+    }
+
+    private void changeGameMethod(MethodType methodType, Method method) {
+        if (method == null) {
+            return;
+        }
+
+        if (game == null) {
+            pickGameLayout.removeAllViews();
+        } else {
+            if (methodType.getId() == game.getMethod().getPid() && method.getId() == game.getMethod().getId()) {
+                //同一个玩法，不用切换
+                return;
+            }
+            game.destroy();
+            menuController.addPreference(method);
+            saveMethod2Xml(methodType, method);
+            methodTypeRecord = methodType;
+            methodRecord = method;
+            slideLayout.setToClosed();
+        }
+        if (method.getId() == 178)
+            loadTimingView(178);
+        else
+            loadTimingView(0);
+        resultAdapter.setData(resultList, method, issueLogger);
+        menuController.setCurrentMethod(method);
+        titleView.setText(methodType.getNameCn() + "-" + method.getNameCn());
+        choosePrompt(0);
+        cartOrders(shoppingCart.getPlanNotes());
+        shoppingCartIcon.setEnabled(!shoppingCart.isEmpty());
+        game = GameConfig.createGame(getActivity(), method, lottery);
+        game.inflate(pickGameLayout);
+        game.setOnSelectedListener(this);
+        /*if (game.isInputStatus())
+            pickRandom.setVisibility(View.GONE);
+        else
+            pickRandom.setVisibility(View.VISIBLE);*/
+
+        loadWebViewIfNeed();
+        pickGameLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
+    }
+
+    private void updateMenu(ArrayList<MethodList> methodList) {
+        menuController.setMethodList(methodList);
+    }
+
+    @Override
+    public void onClickMethod(Method method) {
+        menuController.hide();
+        MethodType methodType = selectMethodType(method);
+        changeGameMethod(methodType, method);
+    }
+
+    private class JsInterface {
+        @JavascriptInterface
+        public String getData() {
+            if (game == null) {
+                return "";
+            }
+            return game.getWebViewCode();
+        }
+
+        @JavascriptInterface
+        public String getSubmitCodes() {
+            if (game == null) {
+                return "";
+            }
+            return game.getSubmitCodes();
+        }
+
+        @JavascriptInterface
+        public String getMethodName() {
+            if (game == null) {
+                return "";
+            }
+            return game.getMethod().getNameEn();
+        }
+
+        @JavascriptInterface
+        public int getLotteryId() {
+            if (lottery == null) {
+                return -1;
+            }
+            return lottery.getId();
+        }
+
+        @JavascriptInterface
+        public int getSeriesId() {
+            if (lottery == null) {
+                return -1;
+            }
+            return lottery.getSeriesId();
+        }
+
+        @JavascriptInterface
+        public int getMethodId() {
+            if (game == null) {
+                return -1;
+            }
+            return game.getMethod().getId();
+        }
+
+        @JavascriptInterface
+        public void result(long singleNum) {
+            Log.d(TAG, "result() called with: " + "singleNum = [" + singleNum + "]");
+            if (game == null) {
+                return;
+            }
+            game.setSingleNum(singleNum);
+            webView.post(updatePickNoticeRunnable);
+        }
+    }
+
+    private void update2WebView() {
+        if (webView == null) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            webView.evaluateJavascript("calculate();", null);
+        } else {
+            webView.loadUrl("javascript:calculate();");
+        }
+    }
+
+    private Runnable updatePickNoticeRunnable = new Runnable() {
+        @Override
+        public void run() {
+            calculate();
+        }
+    };
+
+    //game.setOnSelectedListener(this)的回调
+    @Override
+    public void onChanged(Game game) {
+        switch (game.getMethod().getId())
+        {
+            /*case 401:
+                game.getResultKl8RX2();
+                break;
+            case 402:
+                game.getResultKl8RX3();
+                break;
+            case 406:
+                game.getResultKl8RX7();
+                break;*/
+            default:
+                loadWebViewIfNeed();
+                update2WebView();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        if (timingView != null) {
+            timingView.stop();
+        }
+        if (webView != null) {
+            webView.onPause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (webView != null) {
+            webView.onResume();
+        }
+
+        shoppingCart = ShoppingCart.getInstance();
+        cartOrders(shoppingCart.getPlanNotes());
+        loadMenu();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        if (game != null) {
+            game.destroy();
+        }
+        if (webView != null) {
+            webView.destroy();
+        }
+    }
+
+    private Method defaultGameMethod(ArrayList<MethodList> methodList) {
+        int id = 0;
+        switch (lottery.getSeriesId()) {
+            case 2://11选5
+                id = 112;
+                break;
+            case 1://重庆时时彩
+                if (lottery.getId() == 4) {
+                    id = 70;
+                } else {
+                    id = 65;
+                }
+                break;
+            case 4://苹果快三分分彩
+                id = 160;
+                break;
+            case 5://苹果极速PK10
+                id = 175;
+                break;
+            case 3://苹果极速3D
+                id = 136;
+                break;
+            case 9://快乐十分
+                id = 456;
+            default:
+                break;
+        }
+
+        if (id == 0) {
+            return methodList.get(0).getChildren().get(0).getChildren().get(0);
+        }
+
+        Method defaultMethod = null;
+        for (MethodList methods : methodList) {
+            for (MethodType methodGroup : methods.getChildren()) {
+                for (Method method : methodGroup.getChildren()) {
+                    if (id == method.getId()) {
+                        defaultMethod = method;
+                    }
+                }
+            }
+        }
+        return defaultMethod;
+    }
+
+    private MethodType selectMethodType(Method methodChoose) {
+        MethodType methodType = null;
+        if (methodChoose != null) {
+            for (MethodList methods : methodListRecord) {
+                for (MethodType methodGroup : methods.getChildren()) {
+                    for (Method method : methodGroup.getChildren()) {
+                        if (methodChoose.getId() == method.getId() && methodChoose.getPid() == methodGroup.getId()) {
+                            methodType = methodGroup;
+                        }
+                    }
+                }
+            }
+        } else {
+            methodType = methodListRecord.get(0).getChildren().get(0);
+        }
+        return methodType;
+    }
+
+    //加载玩法菜单
+    private void loadMenu() {
+        MethodListCommand methodListCommand = new MethodListCommand();
+        methodListCommand.setLotteryId(lottery.getId());
+        TypeToken typeToken = new TypeToken<RestResponse<ArrayList<MethodList>>>() {
+        };
+        RestRequest restRequest = RestRequestManager.createRequest(getActivity(), methodListCommand, typeToken, restCallback, ID_METHOD_LIST, this);
+        restRequest.execute();
+    }
+
+    //加载开奖走势
+    private void loadIssueResult() {
+        LotteryCodeCommand command = new LotteryCodeCommand();
+        command.setLotteryId(lottery.getId());
+        if (lottery.getSeriesId() == 7) {
+            command.setCount(6);
+        } else {
+            command.setCount(10);
+        }
+        TypeToken typeToken = new TypeToken<RestResponse<ArrayList<LotteryCode>>>() {
+        };
+        RestRequest restRequest = RestRequestManager.createRequest(getActivity(), command, typeToken, restCallback, ID_RESULT_LIST, this);
+        restRequest.execute();
+    }
+
+    private RestCallback restCallback = new RestCallback() {
+        @Override
+        public boolean onRestComplete(RestRequest request, RestResponse response) {
+            switch (request.getId()) {
+                case ID_METHOD_LIST:
+                    methodListRecord = (ArrayList<MethodList>) response.getData();
+                    loadIssueResult();
+                    if (methodListRecord != null && methodListRecord.size() > 0) {
+                        if (methodTypeRecord == null && methodRecord == null) {
+                            methodRecord = defaultGameMethod(methodListRecord);
+                            methodTypeRecord = selectMethodType(methodRecord);
+                            changeGameMethod(methodTypeRecord, methodRecord);
+                        }
+                    }
+                    updateMenu(methodListRecord);
+                    break;
+                case ID_RESULT_LIST:
+                    resultList = (ArrayList<LotteryCode>) response.getData();
+                    Iterator<LotteryCode> iter = resultList.iterator();
+                    while (iter.hasNext()) {
+                        LotteryCode item = iter.next();
+                        if (item.getIssue().equals(issueLogger)) {
+                            iter.remove();
+                        }
+                    }
+                    resultAdapter.setData(resultList, methodRecord, issueLogger);
+                    setExtension(0, getListheight(resultAdapter, issueResultList));
+                    break;
+            }
+            return true;
+        }
+
+        @Override
+        public boolean onRestError(RestRequest request, int errCode, String errDesc) {
+            if (errCode == 3004 || errCode == 2016) {
+                signOutDialog(getActivity(), errCode);
+                return true;
+            } else {
+                showToast(errDesc);
+            }
+            return false;
+        }
+
+        @Override
+        public void onRestStateChanged(RestRequest request, @RestRequest.RestState int state) {
+        }
+    };
+
+    private int getListheight(GameStickResultAdapter adapter, ListView listView) {
+        //对适配器的数据进行判空操作
+        if (adapter == null) {
+            return 0;
+        }
+        //设置ListView的底部高度
+        int totalHeight = 0;
+        //遍历适配器数据，获取到每一个item的高度并进行统计
+        for (int i = 0; i < adapter.getCount(); i++) {
+            View listItem = adapter.getView(i, null, listView);    //获取到ListView中item对应的view
+            listItem.measure(0, 0);                                //获取到view的高度
+            totalHeight += listItem.getMeasuredHeight();        //获取到所有item的总高度
+        }
+
+        //获取到总高度：item总高度+线条总高度（线条比item数少一个）
+        totalHeight = totalHeight + (listView.getDividerHeight() * (adapter.getCount() - 1));
+        return totalHeight;
+    }
+
+}

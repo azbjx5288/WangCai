@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.goldenapple.lottery.view.CustomScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom"
+        android:layout_alignParentTop="true"
+        android:background="@color/background"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical|center"
+                    android:text="收件人:"
+                    android:textSize="14sp" />
+                <RadioGroup
+                    android:id="@+id/manner_radiogroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/prefect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:text="所有下级" />
+
+                    <RadioButton
+                        android:id="@+id/follower"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:text="单一下级" />
+
+                    <RadioButton
+                        android:id="@+id/ownership"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:text="上级" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/send_member"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:layout_weight="1">
+
+                    <Spinner
+                        android:id="@+id/addressee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_toLeftOf="@+id/v_choose_contact"
+                        android:background="@drawable/shape_rounded_bg"
+                        android:hint="输入用户名(多个用户回车分隔)"
+                        android:inputType="text|textMultiLine"
+                        android:textSize="13sp"
+                        android:minHeight="35dp"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="2dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="2dp"
+                        android:textColorHint="#dfdfdf"
+                        />
+
+                    <ImageView
+                        android:id="@+id/add_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/ioc_down" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|center"
+                    android:textSize="14sp"
+                    android:text="标　题:" />
+
+                <EditText
+                    android:id="@+id/title_text"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_rounded_bg"
+                    android:gravity="center_vertical|left"
+                    android:hint="请输入标题"
+                    android:textSize="13sp"
+                    android:inputType="text|textMultiLine"
+                    android:padding="2dp"
+                    android:singleLine="true"
+                    android:textColorHint="#dfdfdf" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:gravity="center_vertical|center"
+                android:textSize="14sp"
+                android:text="内　容:" />
+
+            <EditText
+                android:id="@+id/multiline_text"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/shape_rounded_bg"
+                android:gravity="top"
+                android:hint="请输入发件内容....."
+                android:textSize="13sp"
+                android:inputType="textMultiLine"
+                android:maxLines="6"
+                android:minLines="5"
+                android:padding="2dp"
+                android:scrollbars="vertical"
+                android:textColorHint="@color/gray" />
+        </LinearLayout>
+    </com.goldenapple.lottery.view.CustomScrollView>
+
+    <View
+        android:layout_above="@+id/ll_btn"
+        android:layout_width="match_parent"
+        android:layout_height="1.0px"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:id="@+id/ll_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+     <!--   <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/notidialog_leftbtn_selector"
+            android:text="取消"
+            android:textColor="@android:color/white" />
+
+        <View android:id="@+id/alert_dialog_view"
+            android:layout_width="10dp"
+            android:layout_height="match_parent" />-->
+
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/notidialog_rightbtn_selector"
+            android:text="发送"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</RelativeLayout>
+
+

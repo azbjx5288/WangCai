@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+    >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+            >
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="帐号类型:"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <RadioGroup
+                    android:id="@+id/user_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/proxy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="代理"/>
+
+                    <RadioButton
+                        android:id="@+id/user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="普通用户"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="账号信息："
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+            >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="链接有效期："/>
+
+                <Spinner
+                    android:id="@+id/duration"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:textColorHint="@color/text_middle"
+                    android:textSize="12sp"
+                />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+            >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="推广渠道："/>
+
+                <EditText
+                    android:id="@+id/channel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_rounded_bg2"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:textColorHint="@color/text_middle"
+                    android:textSize="12sp"
+                />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+            >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="推广QQ："/>
+
+                <EditText
+                    android:id="@+id/qq"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_rounded_bg2"
+                    android:gravity="center_vertical"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textColorHint="@color/text_middle"
+                    android:textSize="12sp"
+                />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="奖金组："
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="35dp"
+                android:orientation="horizontal"
+            >
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="数字彩："/>
+
+                <EditText
+                    android:id="@+id/bonus_counts"
+                    android:layout_width="150dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/shape_rounded_bg2"
+                    android:gravity="center_vertical"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textColorHint="@color/text_middle"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/bonus_rebate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="对应返点23%"/>
+
+            </LinearLayout>
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_marginStart="60dp"-->
+                <!--android:text="最高可设置1960"/>-->
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="游戏返点："
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="竞彩足球："
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+            >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="单关返点："/>
+
+                <EditText
+                    android:id="@+id/bonus_danguan"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_rounded_bg2"
+                    android:gravity="center_vertical"
+                    android:hint="0"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:text="0.0"
+                    android:textColorHint="@color/text_middle"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="% （一共有6%可以分配）"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+            >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="混合过关："/>
+
+                <EditText
+                    android:id="@+id/bonus_hunhe"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_rounded_bg2"
+                    android:gravity="center_vertical"
+                    android:hint="0"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:text="0.0"
+                    android:textColorHint="@color/text_middle"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="% （一共有10%可以分配）"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+            >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="AG 游 戏 ："/>
+
+                <EditText
+                    android:id="@+id/bonus_ag"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_rounded_bg2"
+                    android:gravity="center_vertical"
+                    android:hint="0.0"
+                    android:inputType="number|numberDecimal"
+                    android:maxLines="1"
+                    android:text="0.0"
+                    android:textColorHint="@color/text_middle"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="% （一共有0.6%可以分配）"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+            >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="right"
+                    android:text="GA 游 戏 ："/>
+
+                <EditText
+                    android:id="@+id/bonus_game"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_rounded_bg2"
+                    android:gravity="center_vertical"
+                    android:hint="0.0"
+                    android:inputType="number|numberDecimal"
+                    android:maxLines="1"
+                    android:text="0.0"
+                    android:textColorHint="@color/text_middle"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="% （一共有6%可以分配）"/>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:padding="5dp">
+
+            <Button
+                android:id="@+id/rebates_setting_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_type"
+                android:text="生成链接"
+                android:textColor="@color/gray"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

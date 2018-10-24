@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="前三直选复式、单式	"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item1"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="前三组选复式、单式、胆拖"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item2"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="前二直选复式、单式"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item2"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="前二组选复式、单式、胆拖"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item2"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="任选复式、单式一中一"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item2"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="任选复式、单式、胆拖二中二"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item2"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="任选复式、单式、胆拖三中三"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item2"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="任选复式、单式、胆拖四中四"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item3"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="任选复式、单式、胆拖五中五"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item4"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="任选复式、单式、胆拖六中五"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item4"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="任选复式、单式、胆拖七中五"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item3"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="任选复式、单式、胆拖八中五	"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item2"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="猜不出 系列玩法"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="14sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/game_method_info_padding"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/dantiao_11select5_item2"
+                android:textColor="@color/app_font_dark_color"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </TableRow>
+    </TableLayout>
+
+</ScrollView>
+
+

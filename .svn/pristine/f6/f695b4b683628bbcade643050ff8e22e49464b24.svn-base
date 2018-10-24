@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:gravity="center"
+    android:minHeight="45dp">
+
+    <LinearLayout
+        style="@style/chase_item"
+        android:gravity="left|center_vertical"
+        android:minWidth="120dp">
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/chase_issue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="期号"
+            android:textColor="@color/text_dark" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/chase_item"
+        android:minWidth="90dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <com.goldenapple.lottery.component.LastInputEditText
+            android:id="@+id/chase_multiple"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_edittext"
+            android:digits="1234567890"
+            android:gravity="center"
+            android:hint="1"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:singleLine="true"
+            android:text="1"
+            android:textColor="@color/tiger"
+            android:textColorHint="@color/text_middle" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/chase_current"
+        style="@style/chase_item"
+        android:minWidth="120dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/chase_investput"
+        style="@style/chase_item"
+        android:minWidth="120dp"
+        android:text=""
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/chase_deficit"
+        style="@style/chase_item"
+        android:minWidth="120dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/chase_total"
+        style="@style/chase_item"
+        android:minWidth="120dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/chase_interestrate"
+        style="@style/chase_item"
+        android:minWidth="120dp"
+        android:text="" />
+
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="colorTransparent">#10000000</color><!--灰半透明 -->
+    <color name="white">#ffffff</color><!--白色 -->
+    <color name="darkkhaki">#bdb76b</color><!--暗黄褐色 -->
+    <color name="darkgray">#a9a9a9</color><!--暗灰色 -->
+    <color name="gray">#808080</color><!--灰色 -->
+    <color name="cadetblue">#5f9ea0</color><!--军兰色 -->
+    <color name="darkblue">#00008b</color><!--暗蓝色 -->
+    <color name="black">#000000</color><!--黑色 -->
+
+    <color name="app_main">#72389d</color><!--#00c9cb-->
+    <color name="app_main_dark">#6d2a9f</color><!--#008b8c-->
+    <color name="app_secondary_dark">#fa5959</color>
+    <color name="app_secondary2_dark">#ab0101</color>
+    <color name="text_dark">#505050</color>
+    <color name="text_middle">#adadad</color>
+    <color name="dark_gray">#7e7e7e</color>
+    <color name="text_shallow">#c5c5c5</color>
+    <color name="text_light">#d7d7d7</color>
+    <color name="text_light1">#f2f0f0</color>
+    <color name="background">#f5f5f5</color>
+    <color name="gameCheck">#F5F5F5</color>
+    <color name="gameUncheck">#e2e2e2</color>
+    <color name="gameListItemWin">#b31045</color>
+    <color name="gameListItemFail">#39a78a</color>
+    <color name="gameListItemDoing">#39a78a</color>
+    <color name="gameListItemDone">#505050</color>
+    <color name="app_font_color">#333333</color>
+    <color name="app_font_ash_color">#666666</color>
+    <color name="app_font_dark_color">#999999</color>
+    <color name="app_main_rim">#e2e2e2</color>
+
+    <color name="dragon">#0ECA25</color>
+    <color name="tiger">#FF9A02</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="possible_result_points">#c0ffbd21</color>
+    <!-- Android standard ICS color -->
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c099cc00</color>
+    <!-- Android standard ICS color -->
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_laser">#ffcc0000</color>
+    <!-- Android standard ICS color -->
+    <color name="viewfinder_mask">#60000000</color>
+
+    <color name="orders_color">#4e4e4e</color>
+    <color name="font_color_red">#e84f4f</color>
+
+    <color name="halfTransparent">#10000000</color>
+    <color name="whiteHalfTransparent">#80FFFFFF</color>
+</resources>

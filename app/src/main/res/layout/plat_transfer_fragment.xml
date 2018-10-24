@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="80dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dip">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:gravity="fill_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="80dip"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="5dip"
+                    android:text="转        移:"
+                    android:textColor="@color/orders_color"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="从"
+                        android:textColor="@color/orders_color"
+                        android:textSize="16sp" />
+
+                    <LinearLayout android:id="@+id/plat_type"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_rim_line"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_from"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="选择平台" />
+
+                        <ImageView
+                            android:id="@+id/image_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="1dp"
+                            android:layout_marginTop="1dp"
+                            android:background="@color/app_main"
+                            android:padding="6dp"
+                            android:src="@drawable/select_donw" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="到"
+                        android:textColor="@color/orders_color"
+                        android:textSize="16sp" />
+
+                    <LinearLayout android:id="@+id/plat_from"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_rim_line"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_to"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="选择平台" />
+
+                        <ImageView
+                            android:id="@+id/image_plat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="1dp"
+                            android:layout_marginTop="1dp"
+                            android:background="@color/app_main"
+                            android:padding="6dp"
+                            android:src="@drawable/select_donw" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="25dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="80dip"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="5dip"
+                    android:text="余        额:"
+                    android:textColor="@color/orders_color"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/plat_funds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0.00"
+                    android:textColor="@color/font_color_red"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="20dip"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/channel_funds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0.00"
+                    android:textColor="@color/font_color_red"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dip" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="80dip"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="5dip"
+                    android:text="转入金额:"
+                    android:textColor="@color/orders_color"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/transfer_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_rounded_bg"
+                    android:digits="1234567890."
+                    android:gravity="center_vertical|left"
+                    android:hint="请输入大于10的整数"
+                    android:inputType="numberDecimal"
+                    android:maxLength="10"
+                    android:paddingLeft="10dip"
+                    android:singleLine="true"
+                    android:textColorHighlight="@color/gameListItemDone"
+                    android:textColorHint="@color/text_middle"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="20dip"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="元"
+                    android:textColor="@color/orders_color"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/text_middle"
+        android:padding="6dp">
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_login"
+            android:text="转移"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</RelativeLayout>
+
+

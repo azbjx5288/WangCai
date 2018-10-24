@@ -1,0 +1,144 @@
+package com.wangcai.lottery.view.adapter;
+
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.text.Html;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.thinkcool.circletextimageview.CircleTextImageView;
+import com.wangcai.lottery.R;
+import com.wangcai.lottery.data.UserListBean;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+/**
+ * Created by ACE-PC on 2016/3/1.
+ */
+public class UserListAdapter extends BaseAdapter {
+
+    private OnManageListner onManageListner;
+    private List<UserListBean> resultList;
+    private boolean isHiddenEditImage=false;
+
+    public UserListAdapter(  boolean isHiddenEditImage) {
+        this.isHiddenEditImage=isHiddenEditImage;
+    }
+
+    public void setData(List<UserListBean> resultList)
+    {
+        this.resultList = resultList;
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public int getCount() {
+        return resultList == null ? 0 : resultList.size();
+    }
+
+    @Override
+    public UserListBean getItem(int position) {
+        return resultList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    public void setData(ArrayList<UserListBean> resultList) {
+        this.resultList = resultList;
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        ViewHolder viewHolder;
+        if (convertView == null) {
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_user_list_item, parent, false);
+            viewHolder = new ViewHolder(convertView);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
+        UserListBean bean = getItem(position);
+
+        if(bean.getChildren_num()>0){
+            viewHolder.item_01.setText(Html.fromHtml("<u>"+bean.getUsername()+"</u>"));
+            viewHolder.item_01.getPaint().setFlags(Paint. UNDERLINE_TEXT_FLAG );
+            viewHolder.item_01.setClickable(true);
+            viewHolder.item_01.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view)
+                {
+                    if (onManageListner != null)
+                        onManageListner.onDetal(position,bean.getId(),bean.getUsername());
+                }
+            });
+        }else{
+            viewHolder.item_01.setText(bean.getUsername());
+        }
+        viewHolder.item_02.setText(bean.getChildren_num()+"");
+        viewHolder.item_03.setText(bean.getRegister_at());
+        viewHolder.item_04.setText(bean.getGroup_account_sum());
+        viewHolder.edit.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if (onManageListner != null)
+                    onManageListner.onEdit(bean.getId(),bean.getUsername(),bean.isIs_agent());
+            }
+        });
+        viewHolder.edit.setVisibility(isHiddenEditImage?View.INVISIBLE :View.VISIBLE);
+
+        return convertView;
+    }
+
+    static class ViewHolder
+    {
+        @BindView(R.id.item_01)
+        TextView item_01;
+        @BindView(R.id.item_02)
+        TextView item_02;
+        @BindView(R.id.item_03)
+        TextView item_03;
+        @BindView(R.id.item_04)
+        TextView item_04;
+
+        @BindView(R.id.edit)
+        ImageButton edit;
+
+        ViewHolder(View view)
+        {
+            ButterKnife.bind(this, view);
+            view.setTag(this);
+        }
+    }
+
+    public interface OnManageListner
+    {
+        void onEdit(int id,String username,boolean is_agent);
+
+        void onDetal(int position,int pid,String username);
+    }
+    public void setOnManageListner(OnManageListner onManageListner)
+    {
+        this.onManageListner = onManageListner;
+    }
+}

@@ -1,0 +1,36 @@
+<resources>
+
+    <dimen name="title_bar_height">48dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="banner_height">160dp</dimen>
+    <dimen name="tab_height_large">72dp</dimen>
+
+    <!--  Banner -->
+    <dimen name="view_small_padding">1dp</dimen>
+    <dimen name="view_padding">6dp</dimen>
+    <dimen name="indicator_width">5dp</dimen>
+    <dimen name="indicator_width_half">2.5dp</dimen>
+
+    <!-- 文字尺寸 -->
+    <dimen name="text_size_tiny">10sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="title_text_size">18sp</dimen>
+
+    <dimen name="historyscore_tb">10dp</dimen>
+
+    <dimen name="draftplans_width">150.0dip</dimen>
+    <dimen name="draftplans_yoff">5.0dip</dimen>
+
+    <dimen name="standard_padding">8dip</dimen>
+    <dimen name="half_padding">4dip</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="text_size_micro">8dp</dimen>
+    <!--改版尺寸-->
+    <dimen name="pad_ud">10dp</dimen>
+    <dimen name="pad_lr">15dp</dimen>
+
+    <dimen name="game_method_info_padding">0.1dp</dimen>
+
+</resources>

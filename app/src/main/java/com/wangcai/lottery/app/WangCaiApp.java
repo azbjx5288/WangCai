@@ -21,7 +21,7 @@ import com.umeng.analytics.MobclickAgent;
  * Created by Alashi on 2015/12/22.
  */
 public class WangCaiApp extends Application {
-    public static final boolean SERVER_TYPE = true;//true:正式服；false：测试服
+    public static final boolean SERVER_TYPE = false;//true:正式服；false：测试服
     private static WangCaiApp sApp;
     private String baseUrl ="";
     private ThreadPool threadPool;
@@ -53,7 +53,9 @@ public class WangCaiApp extends Application {
             baseUrl = "http://api.c39r6y.com";  // 新域名
         } else {
             // baseUrl = "http://api.wangcaitest.com";//测试服
-            baseUrl="http://wcapi.4385nt.com";
+//            baseUrl="http://wcapi.4385nt.com";
+//            baseUrl="http://wcapi.4385nt.com";
+            baseUrl="http://wcapi4.4385nt.com";
         }
         userCentre = new UserCentre(this, baseUrl);
         mQueues = Volley.newRequestQueue(getApplicationContext());
