@@ -1,0 +1,26 @@
+package com.wangcai.lottery.data;
+
+import com.android.volley.Request;
+import com.google.gson.annotations.SerializedName;
+import com.wangcai.lottery.base.net.RequestConfig;
+
+@RequestConfig(api = "service?packet=Fund&action=PlatTransfer", method = Request.Method.POST)
+public class TransferFundsCommand extends CommonAttribute{
+    @SerializedName("from_plat")
+    private int fromPlat;
+    @SerializedName("to_plat")
+    private int toPlat;
+    private double amount;
+
+    public void setFromPlat(int fromPlat) {
+        this.fromPlat = fromPlat;
+    }
+
+    public void setToPlat(int toPlat) {
+        this.toPlat = toPlat;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+}

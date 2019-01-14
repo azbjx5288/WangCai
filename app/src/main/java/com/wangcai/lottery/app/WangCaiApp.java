@@ -55,7 +55,11 @@ public class WangCaiApp extends Application {
             // baseUrl = "http://api.wangcaitest.com";//测试服
 //            baseUrl="http://wcapi.4385nt.com";
 //            baseUrl="http://wcapi.4385nt.com";
-            baseUrl="http://wcapi4.4385nt.com";
+//           baseUrl="http://wcapi4.4385nt.com";
+//             baseUrl="http://wcapi2.4385nt.com";
+
+
+
         }
         userCentre = new UserCentre(this, baseUrl);
         mQueues = Volley.newRequestQueue(getApplicationContext());

@@ -1,0 +1,535 @@
+package com.wangcai.lottery.fragment;
+
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.ScrollView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.gson.reflect.TypeToken;
+import com.wangcai.lottery.R;
+import com.wangcai.lottery.app.LazyBaseFragment;
+import com.wangcai.lottery.app.WangCaiApp;
+import com.wangcai.lottery.base.net.GsonHelper;
+import com.wangcai.lottery.base.net.RestCallback;
+import com.wangcai.lottery.base.net.RestRequest;
+import com.wangcai.lottery.base.net.RestRequestManager;
+import com.wangcai.lottery.base.net.RestResponse;
+import com.wangcai.lottery.component.CustomDialog;
+import com.wangcai.lottery.component.DialogLayout;
+import com.wangcai.lottery.data.GetUserLinkInfoCommand;
+import com.wangcai.lottery.data.LinkUserCommand;
+import com.wangcai.lottery.data.PrizeGroupChild;
+import com.wangcai.lottery.data.QuotaBean;
+import com.wangcai.lottery.data.UserAccurateInfo;
+import com.wangcai.lottery.view.adapter.QuotaAdapter;
+
+import org.apache.commons.codec.digest.DigestUtils;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
+
+
+/**
+ * 链接开户
+ */
+
+public class OpenAccountLinkFragment extends LazyBaseFragment
+{
+    private static final String TAG = OpenAccountLinkFragment.class.getSimpleName();
+    @BindView(R.id.proxy)
+    RadioButton proxy;
+    @BindView(R.id.user)
+    RadioButton user;
+    @BindView(R.id.user_type)
+    RadioGroup userType;
+    @BindView(R.id.duration)
+    Spinner duration;
+    @BindView(R.id.channel)
+    EditText channel;
+    @BindView(R.id.qq)
+    EditText qq;
+    @BindView(R.id.bonus_counts)
+    EditText bonusCounts;
+    @BindView(R.id.bonus_rebate)
+    TextView bonusRebate;
+/*    @BindView(R.id.bonus_danguan)
+    EditText bonusDanguan;*/
+  /*  @BindView(R.id.bonus_hunhe)
+    EditText bonusHunhe;*/
+/*    @BindView(R.id.bonus_ag)
+    EditText bonusAg;*/
+    @BindView(R.id.bonus_game)
+    EditText bonusGame;
+    @BindView(R.id.scrollView)
+    ScrollView scrollView;
+    @BindView(R.id.rebates_setting_btn)
+    Button rebatesSettingBtn;
+    Unbinder unbinder;
+    @BindView(R.id.bonus_danguan_tv)
+    TextView bonus_danguan_tv;
+    @BindView(R.id.bonus_hunhe_tv)
+    TextView bonus_hunhe_tv;
+    @BindView(R.id.bonus_ag_tv)
+    TextView bonus_ag_tv;
+    @BindView(R.id.bonus_game_tv)
+    TextView bonus_game_tv;
+
+    private static final int GET_USER_INFO_COMMAND = 1;
+    private static final int SUBMIT_COMMAND = 2;
+    
+    private QuotaAdapter quotaAdapter;
+    private String validDays = "";
+    private HashMap<String, Integer> timeMap;
+
+    private boolean mShowDialog=true;
+    
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+        View view = inflateView(inflater, container, true, "链接开户", R.layout.fragment_open_account_link, true, true);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
+    }
+    
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
+    {
+        super.onViewCreated(view, savedInstanceState);
+        addMenuItem("管理", new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                launchFragment(LinkManagement.class);
+            }
+        });
+        init();
+    }
+    
+    private void init()
+    {
+        user.setVisibility(View.INVISIBLE);
+        quotaAdapter = new QuotaAdapter();
+        
+        ArrayList<String> durStrings = new ArrayList<>();
+        durStrings.add("请选择");
+        durStrings.add("1天");
+        durStrings.add("7天");
+        durStrings.add("30天");
+        durStrings.add("90天");
+        durStrings.add("永久有效");
+        ArrayList<Integer> durInts = new ArrayList<>();
+        durInts.add(-1);
+        durInts.add(1);
+        durInts.add(7);
+        durInts.add(30);
+        durInts.add(90);
+        durInts.add(0);
+        timeMap = new HashMap<>();
+        for (int i = 0; i < 6; i++)
+        {
+            timeMap.put(durStrings.get(i), durInts.get(i));
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item,
+                durStrings);
+        duration.setAdapter(adapter);
+        duration.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                validDays = duration.getSelectedItem().equals("请选择") ? "" : (String) duration.getSelectedItem();
+            }
+            
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView)
+            {
+            
+            }
+        });
+        
+        GetUserLinkInfoCommand command = new GetUserLinkInfoCommand();
+        TypeToken typeToken = new TypeToken<RestResponse<UserAccurateInfo>>() {};
+        RestRequest restRequest = RestRequestManager.createRequest(getActivity(), command, typeToken, restCallback,
+                GET_USER_INFO_COMMAND, this);
+        restRequest.execute();
+    }
+
+    //DECIMAL_DIGITS = 1;//小数的位数
+    private void  initEditText(EditText editText,float  MaxValue,int DECIMAL_DIGITS){
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int i, int i1, int i2){
+                //这里需要注意，必须先判断mEtEndTimeRepeatTimes.getText()是否为空才能使用Integer.parseInt，否则会报异常。
+                if((editText.getText()!=null) &&
+                        !("".equals(editText.getText().toString()))){
+
+                    if(Double.parseDouble(String.valueOf(editText.getText())) > MaxValue){
+                        editText.setText(String.valueOf(MaxValue));
+                    }
+
+
+                    //限制小数的位数 start
+                    if (DECIMAL_DIGITS>0) {
+                        if (s.toString().contains(".")) {
+                            if (s.length() - 1 - s.toString().indexOf(".") > DECIMAL_DIGITS) {
+                                s = s.toString().subSequence(0,
+                                        s.toString().indexOf(".") + DECIMAL_DIGITS+1);
+                                editText.setText(s);
+                                editText.setSelection(s.length());
+                            }
+                        }
+                        if (s.toString().trim().substring(0).equals(".")) {
+                            s = "0" + s;
+                            editText.setText(s);
+                            editText.setSelection(2);
+                        }
+                        if (s.toString().startsWith("0")
+                                && s.toString().trim().length() > 1) {
+                            if (!s.toString().substring(1, 2).equals(".")) {
+                                editText.setText(s.subSequence(0, 1));
+                                editText.setSelection(1);
+                                return;
+                            }
+                        }
+                    }
+                }
+                //限制小数的位数  end
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
+    @OnClick(R.id.rebates_setting_btn)
+    public void onViewClicked()
+    {
+        if (verifyInput())
+        {
+            String type;
+            if (proxy.isChecked())
+                type = "代理";
+            else if (user.isChecked())
+                type = "玩家";
+            else
+                type = "";
+            
+            /*stringBuilder.append("用户类型：" + type + "   ");
+            stringBuilder.append("登录账号:" + userName.getText().toString() + "\n");
+            stringBuilder.append("登录密码:" + userPassword.getText().toString() + "   ");
+            stringBuilder.append("用户昵称:" + nickName.getText().toString() + "\n");
+            stringBuilder.append("数字彩奖金组:" + bonusCounts.getText().toString() + "\n");
+            stringBuilder.append("竞彩单关：" + bonusDanguan.getText().toString() + "%   ");
+            stringBuilder.append("竞彩混关:" + bonusHunhe.getText().toString() + "%\n");
+            stringBuilder.append("AG游戏：" + bonusAg.getText().toString() + "%   ");
+            stringBuilder.append("GA游戏：" + bonusAg.getText().toString() + "%\n");*/
+            
+            CustomDialog.Builder builder = new CustomDialog.Builder(getContext());
+            View displayView = LayoutInflater.from(getContext()).inflate(R.layout.alert_dialog_reg_confirm_layout,
+                    null);
+            builder.setDisplayLayout(displayView);
+            TextView userType = (TextView) displayView.findViewById(R.id.user_type);
+            TextView account = (TextView) displayView.findViewById(R.id.account);
+            TextView pwd = (TextView) displayView.findViewById(R.id.pwd);
+            TextView nick = (TextView) displayView.findViewById(R.id.nick);
+            TextView numPrizeGroup = (TextView) displayView.findViewById(R.id.num_prize_group);
+            TextView jcdg = (TextView) displayView.findViewById(R.id.jcdg);
+            TextView jchg = (TextView) displayView.findViewById(R.id.jchg);
+            TextView ag = (TextView) displayView.findViewById(R.id.ag);
+            TextView ga = (TextView) displayView.findViewById(R.id.ga);
+            userType.setText("用户类型：" + type);
+            account.setText("链接有效期:" + validDays);
+            pwd.setText("推广渠道:" + channel.getText().toString());
+            nick.setText("推广QQ:" + qq.getText().toString());
+//            numPrizeGroup.setText("数字彩奖金组:" + bonusCounts.getText().toString());
+//            if(Integer.parseInt(bonusCounts.getText().toString()) < 1950){
+//                numPrizeGroup.setVisibility(View.GONE);
+//            }else{
+                numPrizeGroup.setText("数字彩奖金组:" + bonusCounts.getText().toString());
+                numPrizeGroup.setVisibility(View.VISIBLE);
+//            }
+           /* jcdg.setText("竞彩单关:" + bonusDanguan.getText().toString()+"%");
+            jchg.setText("竞彩混关:" + bonusHunhe.getText().toString()+"%");
+            ag.setText("AG游戏:" + bonusAg.getText().toString()+"%");*/
+            ga.setText("GA游戏:" + bonusGame.getText().toString()+"%");
+            //builder.setMessage(stringBuilder.toString());
+            builder.setLayoutSet(DialogLayout.SINGLE);
+            builder.setPositiveButton("确定", new DialogInterface.OnClickListener()
+            {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i)
+                {
+                    LinkUserCommand linkUserCommand = new LinkUserCommand();
+                    linkUserCommand.setValid_days(timeMap.get(validDays));
+                    linkUserCommand.setChannel(channel.getText().toString());
+                    linkUserCommand.setAgent_qqs(qq.getText().toString());
+                    linkUserCommand.setIs_agent(proxy.isChecked() ? 1 : 0);
+                    HashMap<String, String> map = new HashMap<>();
+                    map.put("1", bonusCounts.getText().toString());
+                    linkUserCommand.setAgent_prize_set_quota(Integer.parseInt(bonusCounts.getText().toString()) <
+                            1950 ? null : URLEncoder.encode(GsonHelper.toJson(quotaAdapter.getResultMap())));
+                    linkUserCommand.setSeries_prize_group_json(URLEncoder.encode(GsonHelper.toJson(map)));
+                  /*  linkUserCommand.setFb_single(Float.parseFloat(bonusDanguan.getText().toString()));
+                    linkUserCommand.setFb_all(Float.parseFloat(bonusHunhe.getText().toString()));
+                    linkUserCommand.setAg_percent(Float.parseFloat(bonusAg.getText().toString()));*/
+                    linkUserCommand.setGa_percent(bonusGame.getText().toString());
+
+
+                    String requestCommand = GsonHelper.toJson(linkUserCommand);
+                    requestCommand = requestCommand.replace(":", "=").replace(",", "&").replace("\"", "");
+                    String str=/*"packet=User&action=ChangePrizeGroup&"+*/requestCommand.substring(1, requestCommand.length() - 1)+"&packet=User&action=AccurateUser";
+                    try {
+                        linkUserCommand.setSign(DigestUtils.md5Hex(URLEncoder.encode(str  , "UTF-8") + WangCaiApp.getUserCentre().getKeyApiKey()));
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+
+                    executeCommand(linkUserCommand, restCallback, SUBMIT_COMMAND);
+                    dialogInterface.dismiss();
+                }
+            });
+            builder.create().show();
+        }
+    }
+    
+    private boolean verifyInput()
+    {
+        if (TextUtils.isEmpty(validDays) || TextUtils.isEmpty(channel.getText().toString()) || TextUtils.isEmpty(qq
+                .getText().toString()) || TextUtils.isEmpty(bonusCounts.getText().toString())||
+               /* TextUtils.isEmpty(bonusDanguan.getText().toString()) || TextUtils.isEmpty
+                (bonusHunhe.getText().toString()) || TextUtils.isEmpty(bonusAg.getText().toString()) ||*/ TextUtils
+                .isEmpty(bonusGame.getText().toString()))
+        {
+            Toast.makeText(getContext(), "请完善信息", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if(Integer.parseInt(bonusCounts.getText().toString()) < 1500){
+            Toast.makeText(getContext(), "奖金组不能低于1500", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        
+        return true;
+    }
+    
+    private RestCallback restCallback = new RestCallback()
+    {
+        @Override
+        public boolean onRestComplete(RestRequest request, RestResponse response)
+        {
+            switch (request.getId())
+            {
+                case GET_USER_INFO_COMMAND:
+                    if (response.getData() != null && response.getData() instanceof UserAccurateInfo)
+                    {
+                        UserAccurateInfo userAccurateInfo = (UserAccurateInfo) response.getData();
+                        if (userAccurateInfo.isIs_top_agent() == 0)
+                            user.setVisibility(View.VISIBLE);
+                        bonusCounts.addTextChangedListener(new TextWatcher()
+                        {
+                            @Override
+                            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2)
+                            {
+                            
+                            }
+                            
+                            @Override
+                            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2)
+                            {
+                                if (!TextUtils.isEmpty(charSequence))
+                                {
+                                    int currentPrizeInt=0;
+                                    if (proxy.isChecked())
+                                    {
+                                        currentPrizeInt= userAccurateInfo.getAgentCurrentPrize();
+                                    }else{
+                                        currentPrizeInt=userAccurateInfo.getCurrentPrize();
+                                    }
+                                    if(Integer.parseInt(charSequence.toString())>currentPrizeInt){
+                                        bonusCounts.setText(currentPrizeInt+"");
+                                        return;
+                                    }
+
+                                    if (Integer.parseInt(charSequence.toString()) < 1950)
+                                    {
+
+                                        if (proxy.isChecked())
+                                        {
+                                            ArrayList<PrizeGroupChild> allList = userAccurateInfo
+                                                    .getAllPossibleAgentPrizeGroups();
+                                            if (allList != null && allList.size() != 0)
+                                                for (PrizeGroupChild prizeGroupChild : allList)
+                                                {
+                                                    if (prizeGroupChild.getName().equals(charSequence.toString()))
+                                                    {
+                                                        float returnPoint = ((float) userAccurateInfo
+                                                                .getPossibleAgentPrizeGroup() - Float.parseFloat
+                                                                (charSequence.toString())) / 2000l;
+                                                        //returnPoint = (float) (Math.round((returnPoint * 1000 /
+                                                        // 1000)));
+                                                        returnPoint=returnPoint*100;
+                                                        bonusRebate.setText("对应返点" + returnPoint + "%");
+                                                    }
+                                                }
+                                        } else
+                                        {
+                                            ArrayList<PrizeGroupChild> allList = userAccurateInfo
+                                                    .getAllPossiblePrizeGroups();
+                                            if (allList != null && allList.size() != 0)
+                                                for (PrizeGroupChild prizeGroupChild : allList)
+                                                {
+                                                    if (prizeGroupChild.getName().equals(charSequence.toString()))
+                                                    {
+                                                        float returnPoint = ((float) userAccurateInfo
+                                                                .getPossiblePlayerPrizeGroup() - Float.parseFloat
+                                                                (charSequence.toString())) / 2000l;
+                                                        //returnPoint = (float) (Math.round((returnPoint * 1000 /
+                                                        // 1000)));
+                                                        returnPoint=returnPoint*100;
+                                                        bonusRebate.setText("对应返点" + returnPoint + "%");
+                                                    }
+                                                }
+                                        }
+                                    } else
+                                    {
+                                        if (!proxy.isChecked())
+                                        {
+                                            return;
+                                        }
+                                        LinkedHashMap<Integer, Integer> quotaMap = userAccurateInfo
+                                                .getUserAllPrizeSetQuota();
+                                        if (quotaMap == null || quotaMap.size() == 0)
+                                        {
+                                            return;
+                                        }
+                                        ArrayList<QuotaBean> quotaList = new ArrayList<>();
+                                        for (Map.Entry<Integer, Integer> entry : quotaMap.entrySet())
+                                        {
+                                            QuotaBean quotaBean = new QuotaBean();
+                                            quotaBean.setQuota(entry.getKey());
+                                            quotaBean.setMax(entry.getValue());
+                                            quotaList.add(quotaBean);
+                                        }
+                                        CustomDialog.Builder builder = new CustomDialog.Builder(getContext());
+                                        View displayView = LayoutInflater.from(getContext()).inflate(R.layout
+                                                .alert_dialog_prize_groups_layout, null);
+                                        ListView listView = displayView.findViewById(R.id.list_view);
+                                        listView.setAdapter(quotaAdapter);
+                                        quotaAdapter.setData(quotaList,charSequence.toString());
+                                        builder.setDisplayLayout(displayView);
+                                        builder.setTitle("设置开户配额");
+                                        builder.setLayoutSet(DialogLayout.SINGLE);
+                                        builder.setPositiveButton("确定", new DialogInterface.OnClickListener()
+                                        {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i)
+                                            {
+                                                dialogInterface.dismiss();
+                                                String currentPrize="";
+                                                if (proxy.isChecked())
+                                                {
+                                                    currentPrize= userAccurateInfo.getAgentCurrentPrize()+"";
+                                                }else{
+                                                    currentPrize=userAccurateInfo.getCurrentPrize()+"";
+                                                }
+
+//                                                if(bonusCounts.getText().toString().equals(currentPrize)){
+//                                                    mShowDialog=false;
+//                                                }else{
+////                                                    bonusCounts.setText(currentPrize);
+//                                                }
+                                            }
+                                        });
+//                                        if(mShowDialog){
+                                            builder.create().show();
+//                                        }
+//                                        mShowDialog=true;
+                                    }
+                                }
+                            }
+                            
+                            @Override
+                            public void afterTextChanged(Editable editable)
+                            {
+                            
+                            }
+                        });
+
+                        bonus_danguan_tv.setText("% （共有"+userAccurateInfo.getUserSingle()+"%可以分配）");
+                        bonus_hunhe_tv.setText("% （共有"+userAccurateInfo.getUserMulti()+"%可以分配）");
+                        bonus_ag_tv.setText("% （共有"+userAccurateInfo.getUserAG()+"%可以分配）");
+                        bonus_game_tv.setText("% （共有"+userAccurateInfo.getUserGA()+"%可以分配）");
+                       /* initEditText(bonusDanguan,userAccurateInfo.getUserSingle(),1);
+                        initEditText(bonusHunhe,userAccurateInfo.getUserMulti(),1);
+                        initEditText(bonusAg,userAccurateInfo.getUserAG(),1);*/
+                        initEditText(bonusGame,userAccurateInfo.getUserGA(),1);
+                    }
+                    break;
+                case SUBMIT_COMMAND:
+                    showToast("开户成功", Toast.LENGTH_LONG);
+                    break;
+            }
+            return true;
+        }
+        
+        @Override
+        public boolean onRestError(RestRequest request, int errCode, String errDesc)
+        {
+            if (errCode == 3004 || errCode == 2016)
+            {
+                signOutDialog(getActivity(), errCode);
+                return true;
+            } else
+            {
+//                showToast(errDesc);
+                showToast(errDesc, Toast.LENGTH_SHORT);
+            }
+            return false;
+        }
+        
+        @Override
+        public void onRestStateChanged(RestRequest request, @RestRequest.RestState int state)
+        {
+        }
+    };
+    
+    @Override
+    public void onDestroyView()
+    {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+}
